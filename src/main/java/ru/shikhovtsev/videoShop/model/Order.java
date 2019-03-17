@@ -18,18 +18,6 @@ import java.util.List;
 @Table(name = "orders", schema = "public")
 public class Order extends AbstractBaseEntity {
 
-    @Column(name = "order_number")
-    private Double orderNumber;
-
-    @Column(name = "lastname")
-    private String lastname;
-
-    @Column(name = "firstname")
-    private String firstname;
-
-    @Column(name = "middlename")
-    private String middlename;
-
     @Column(name = "location")
     private String location;
 
