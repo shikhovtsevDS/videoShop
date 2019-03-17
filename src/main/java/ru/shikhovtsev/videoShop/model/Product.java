@@ -16,15 +16,14 @@ import java.util.List;
 @Entity
 @Table(name = "products", schema = "public")
 public class Product extends AbstractNamedEntity {
-
     public Product(String name, String description, Double cost) {
         this.name = name;
         this.description = description;
         this.cost = cost;
     }
 
-    @Column(name = "description")
     @NotNull
+    @Column(name = "description")
     private String description;
 
     @Column(name = "cost")

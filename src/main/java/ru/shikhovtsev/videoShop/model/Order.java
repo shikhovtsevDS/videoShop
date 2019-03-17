@@ -18,6 +18,9 @@ import java.util.List;
 @Table(name = "orders", schema = "public")
 public class Order extends AbstractBaseEntity {
 
+    @Column(name = "id_user")
+    private Integer idUser;
+
     @Column(name = "location")
     private String location;
 
