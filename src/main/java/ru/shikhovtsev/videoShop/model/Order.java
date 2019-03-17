@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -22,10 +22,10 @@ public class Order extends AbstractBaseEntity {
     private String location;
 
     @Column(name = "created_date")
-    private LocalDate createdDate;
+    private LocalDateTime createdDate;
 
     @Column(name = "delivered_date")
-    private LocalDate deliveredDate;
+    private LocalDateTime deliveredDate;
 
     @Enumerated
     @Column(name = "state")
