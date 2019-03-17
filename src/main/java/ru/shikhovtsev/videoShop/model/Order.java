@@ -21,11 +21,11 @@ public class Order extends AbstractBaseEntity {
     @Column(name = "location")
     private String location;
 
-    @Column(name = "date_create")
-    private LocalDate dateCreate;
+    @Column(name = "created_date")
+    private LocalDate createdDate;
 
-    @Column(name = "date_delivery")
-    private LocalDate dateDelivery;
+    @Column(name = "delivered_date")
+    private LocalDate deliveredDate;
 
     @Enumerated
     @Column(name = "state")
