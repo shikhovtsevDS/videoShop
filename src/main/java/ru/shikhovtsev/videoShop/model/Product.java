@@ -23,13 +23,13 @@ public class Product extends AbstractNamedEntity {
     }
 
     @NotNull
-    @Column(name = "description")
+    @Column(name = "description", nullable = false)
     private String description;
 
     @Column(name = "cost")
     private Double cost;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "orders_products", schema = "public",
             joinColumns = @JoinColumn(name = "id_product", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "id_order", referencedColumnName = "id"))
