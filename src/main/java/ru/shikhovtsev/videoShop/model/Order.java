@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -18,16 +20,18 @@ import java.util.List;
 @Table(name = "orders", schema = "public")
 public class Order extends AbstractBaseEntity {
 
-    @Column(name = "id_user")
-    private Integer idUser;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private User user;
 
-    @Column(name = "location")
+    @Column(name = "location", nullable = false)
     private String location;
 
-    @Column(name = "created_date")
+    @Column(name = "created_date", nullable = false)
     private LocalDateTime createdDate;
 
-    @Column(name = "delivered_date")
+    @Column(name = "delivered_date", nullable = false)
     private LocalDateTime deliveredDate;
 
     @Enumerated
