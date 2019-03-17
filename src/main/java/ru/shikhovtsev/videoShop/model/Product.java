@@ -1,4 +1,4 @@
-package ru.shikhovtsev.videoShop.products;
+package ru.shikhovtsev.videoShop.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,14 +15,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Entity
 @Table(name = "products", schema = "main")
-public class Products {
-
-    @Id
-    @Column(name = "id")
-    private Long id;
-
-    @Column(name = "name")
-    private String name;
+public class Product extends AbstractNamedEntity {
 
     @Column(name = "description")
     private String description;
