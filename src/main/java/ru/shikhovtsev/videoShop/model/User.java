@@ -15,15 +15,15 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @Entity
 @Table(name = "users", schema = "public")
-public class User extends AbstractNamedEntity {
+public class User extends AbstractBaseEntity {
 
-    @Column(name = "lastname")
-    private String lastname;
+    @Column(name = "last_name")
+    private String lastName;
 
-    @Column(name = "firstname")
-    private String firstname;
+    @Column(name = "first_name")
+    private String firstName;
 
-    @Column(name = "middlename")
-    private String middlename;
+    @Column(name = "middle_name")
+    private String middleName;
 
 }
