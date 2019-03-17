@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Getter
@@ -14,14 +14,21 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "products", schema = "main")
+@Table(name = "products", schema = "public")
 public class Product extends AbstractNamedEntity {
 
+    public Product(String name, String description, Double cost) {
+        this.name = name;
+        this.description = description;
+        this.cost = cost;
+    }
+
     @Column(name = "description")
+    @NotNull
     private String description;
 
     @Column(name = "cost")
-    private BigDecimal cost;
+    private Double cost;
 
     @ManyToMany
     @JoinTable(name = "orders_products", schema = "public",
