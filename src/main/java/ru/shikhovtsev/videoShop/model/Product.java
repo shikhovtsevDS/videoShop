@@ -31,7 +31,7 @@ public class Product extends AbstractNamedEntity {
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "orders_products", schema = "public",
-            joinColumns = @JoinColumn(name = "id_product", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "id_order", referencedColumnName = "id"))
+            joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "order_id", referencedColumnName = "id"))
     private List<Order> orders;
 }

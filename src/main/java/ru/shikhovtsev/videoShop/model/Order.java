@@ -9,6 +9,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -26,12 +27,15 @@ public class Order extends AbstractBaseEntity {
     private User user;
 
     @Column(name = "location", nullable = false)
+    @NotNull
     private String location;
 
     @Column(name = "created_date", nullable = false)
-    private LocalDateTime createdDate;
+    @NotNull
+    private LocalDateTime createdDate = LocalDateTime.now();
 
     @Column(name = "delivered_date", nullable = false)
+    @NotNull
     private LocalDateTime deliveredDate;
 
     @Enumerated

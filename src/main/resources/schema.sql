@@ -1,32 +1,48 @@
-CREATE TABLE public.orders
+DROP TABLE IF EXISTS orders_products;
+DROP TABLE IF EXISTS orders;
+DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS users;
+DROP SEQUENCE IF EXISTS global_seq;
+
+CREATE SEQUENCE global_seq START 100000;
+
+CREATE TABLE users
 (
-    INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
-    created_date timestamp without time zone NOT NULL,
-    delivered_date timestamp without time zone NOT NULL,
-    location character varying(255) COLLATE pg_catalog."default" NOT NULL,
-    state integer,
-    user_id integer NOT NULL,
-    CONSTRAINT orders_pkey PRIMARY KEY (id),
-    CONSTRAINT fk32ql8ubntj5uh44ph9659tiih FOREIGN KEY (user_id)
-        REFERENCES public.users (id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE CASCADE
+  id               INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
+  first_name       VARCHAR                 NOT NULL,
+  last_name        VARCHAR                 NOT NULL,
+  middle_name      VARCHAR                 NOT NULL,
+  email            VARCHAR                 NOT NULL,
+  password         VARCHAR                 NOT NULL,
+  registered       TIMESTAMP DEFAULT now() NOT NULL,
+  enabled          BOOL DEFAULT TRUE       NOT NULL
+);
+CREATE UNIQUE INDEX users_unique_email_idx ON users (email);
+
+CREATE TABLE orders
+(
+    id            INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
+    created_date   TIMESTAMP DEFAULT now() NOT NULL,
+    delivered_date TIMESTAMP DEFAULT now() NOT NULL,
+    location       VARCHAR NOT NULL,
+    state          INTEGER,
+    user_id        INTEGER NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
 );
 
-CREATE TABLE public.products
+CREATE TABLE products
 (
-    INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
-    name character varying(100) COLLATE pg_catalog."default" NOT NULL,
-    cost double precision,
-    description character varying(255) COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT products_pkey PRIMARY KEY (id)
+  id          INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
+  name        VARCHAR   NOT NULL,
+  cost        INTEGER   NOT NULL,
+  description VARCHAR   NOT NULL
 );
 
-CREATE TABLE public.users
+CREATE TABLE orders_products
 (
-    INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
-    first_name character varying(255) COLLATE pg_catalog."default",
-    last_name character varying(255) COLLATE pg_catalog."default",
-    middle_name character varying(255) COLLATE pg_catalog."default",
-    CONSTRAINT users_pkey PRIMARY KEY (id)
+  order_id      INTEGER NOT NULL,
+  product_id    INTEGER NOT NULL,
+  CONSTRAINT user_roles_idx UNIQUE (order_id, product_id),
+  FOREIGN KEY (order_id) REFERENCES orders (id),
+  FOREIGN KEY (product_id) REFERENCES products (id)
 );
