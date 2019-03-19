@@ -1,7 +1,11 @@
-INSERT INTO users (last_name, first_name, middle_name) VALUES ('Last1', 'First1', 'Middle1');
-INSERT INTO users (last_name, first_name, middle_name) VALUES ('Last2', 'First2', 'Middle2');
-INSERT INTO users (last_name, first_name, middle_name) VALUES ('Last3', 'First3', 'Middle3');
-INSERT INTO users (last_name, first_name, middle_name) VALUES ('Last4', 'First4', 'Middle4');
+INSERT INTO users (last_name, first_name, middle_name, email, password)
+  VALUES ('Last1', 'First1', 'Middle1', 'first1@mail.ru', '123');
+INSERT INTO users (last_name, first_name, middle_name, email, password)
+  VALUES ('Last2', 'First2', 'Middle2', 'first2@mail.ru', '123');
+INSERT INTO users (last_name, first_name, middle_name, email, password)
+  VALUES ('last3', 'First3', 'Middle3', 'first3@mail.ru', '123');
+INSERT INTO users (last_name, first_name, middle_name, email, password)
+  VALUES ('Last4', 'First4', 'Middle4', 'first4@mail.ru', '123');
 
 INSERT INTO products (name, description, cost) VALUES ('Movie 1', '1', 10);
 INSERT INTO products (name, description, cost) VALUES ('Movie 2', '2', 20);
