@@ -9,7 +9,7 @@ import ru.shikhovtsev.videoShop.service.ProductsService;
 @Controller
 public class RootController {
 
-    final ProductsService productsService;
+    private final ProductsService productsService;
 
     @Autowired
     public RootController(ProductsService productsService) {
@@ -21,6 +21,11 @@ public class RootController {
         String message = "Hello Spring Boot + JSP";
         model.addAttribute("message", message);
         return "index";
+    }
+
+    @GetMapping("/login")
+    public String loginPage(){
+        return "login";
     }
 
     @GetMapping("/users")
