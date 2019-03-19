@@ -1,4 +1,4 @@
-package ru.shikhovtsev.videoShop.controller;
+package ru.shikhovtsev.videoShop.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
