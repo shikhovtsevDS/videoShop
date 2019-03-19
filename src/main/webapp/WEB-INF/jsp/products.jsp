@@ -12,15 +12,7 @@
         <th>cost</th>
     </tr>
     </thead>
-    <tbody>
-    <c:forEach var="product" items="${products}">
-        <tr>
-            <td>>${product.name}</td>
-            <td>>${product.description}</td>
-            <td>>${product.cost}</td>
-        </tr>
-    </c:forEach>
-    </tbody>
+
 </table>
 </body>
 </html>

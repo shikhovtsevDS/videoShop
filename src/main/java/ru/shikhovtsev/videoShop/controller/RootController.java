@@ -9,8 +9,19 @@ import ru.shikhovtsev.videoShop.service.ProductsService;
 @Controller
 public class RootController {
 
+    final ProductsService productsService;
+
     @Autowired
-    ProductsService productsService;
+    public RootController(ProductsService productsService) {
+        this.productsService = productsService;
+    }
+
+    @GetMapping("/")
+    public String index(Model model) {
+        String message = "Hello Spring Boot + JSP";
+        model.addAttribute("message", message);
+        return "index";
+    }
 
     @GetMapping("/users")
     public String users() {
@@ -19,7 +30,7 @@ public class RootController {
 
     @GetMapping("/products")
     public String meals(Model model) {
-        model.addAttribute("meals", productsService.getAll());
+        model.addAttribute("products", productsService.getAll());
         return "products";
     }
 }
