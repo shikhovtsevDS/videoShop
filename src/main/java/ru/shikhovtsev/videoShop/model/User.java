@@ -62,4 +62,14 @@ public class User extends AbstractBaseEntity {
     @Size(min = 2, max = 100)
     private String middleName;
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email=" + email +
+                ", name=" + firstName +
+                ", enabled=" + enabled +
+                ", roles=" + roles +
+                '}';
+    }
 }

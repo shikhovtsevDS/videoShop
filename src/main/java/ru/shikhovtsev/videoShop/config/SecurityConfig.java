@@ -7,7 +7,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import ru.shikhovtsev.videoShop.service.UserDetailServiceImpl;
+import ru.shikhovtsev.videoShop.service.UserService;
 
 @Configuration
 @EnableWebSecurity
@@ -15,11 +15,11 @@ import ru.shikhovtsev.videoShop.service.UserDetailServiceImpl;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private UserDetailServiceImpl userDetailService;
+    private UserService userService;
 
     @Autowired
     public void registerGlobalAuthentication(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailService);
+        auth.userDetailsService(userService);
     }
 
     @Override
