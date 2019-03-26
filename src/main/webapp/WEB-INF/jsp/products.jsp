@@ -5,7 +5,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="resources/css/style.css">
-    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/webjars/bootstrap/4.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="/webjars/datatables/1.10.16/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="/webjars/noty/3.1.0/lib/noty.css"/>
     <link rel="stylesheet" href="/webjars/datetimepicker/2.5.11/jquery.datetimepicker.css">
