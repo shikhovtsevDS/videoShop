@@ -149,3 +149,10 @@ body {
 .mastfoot {
     color: rgba(255, 255, 255, .5);
 }
+
+.for-register {
+    margin-left: 20px;
+    color: #6c757d;
+    background-color: #fff;
+    border-color: #6c757d;
+}
