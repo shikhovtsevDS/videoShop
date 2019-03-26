@@ -3,8 +3,14 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-        <a href="meals" class="navbar-brand">Магазин</a>
+<header class="masthead mb-auto">
+    <div class="inner">
+        <h3 class="masthead-brand">Video store</h3>
+        <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link active" href="/">Home</a>
+            <a class="nav-link" href="products">Products</a>
+            <a class="nav-link" href="login">Log in</a>
+            <a class="nav-link" href="#">Contact</a>
+        </nav>
     </div>
-</div>
+</header>
