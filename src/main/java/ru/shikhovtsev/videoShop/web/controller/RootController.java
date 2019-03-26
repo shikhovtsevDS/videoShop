@@ -17,9 +17,7 @@ public class RootController {
     }
 
     @GetMapping("/")
-    public String index(Model model) {
-        String message = "Hello Spring Boot + JSP";
-        model.addAttribute("message", message);
+    public String index() {
         return "index";
     }
 
@@ -37,5 +35,10 @@ public class RootController {
     public String meals(Model model) {
         model.addAttribute("products", productsService.getAll());
         return "products";
+    }
+
+    @GetMapping("/registration")
+    public String registration() {
+        return "registration";
     }
 }

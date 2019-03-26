@@ -15,7 +15,7 @@
                 <nav class="nav nav-masthead justify-content-center">
                     <a class="nav-link" href="/">Home</a>
                     <a class="nav-link" href="products">Products</a>
-                    <a class="nav-link active" href="login">Log in</a>
+                    <a class="nav-link active" href="login" aria-disabled="true">Log in</a>
                 </nav>
             </div>
         </header>
