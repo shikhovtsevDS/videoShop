@@ -13,9 +13,8 @@
             <h3 class="masthead-brand">Video store</h3>
             <nav class="nav nav-masthead justify-content-center">
                 <a class="nav-link" href="/">Home</a>
-                <a class="nav-link active" href="products">Products</a>
+                <a class="nav-link active" href="products" aria-disabled="true">Products</a>
                 <a class="nav-link" href="login">Log in</a>
-                <a class="nav-link" href="#">Contact</a>
             </nav>
         </div>
     </header>
