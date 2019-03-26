@@ -6,7 +6,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <jsp:include page="fragments/links.jsp"/>
+    <jsp:include page="fragments/headTag.jsp"/>
 </head>
 <body class="text-center">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">

@@ -26,6 +26,11 @@ public class RootController {
         return "login";
     }
 
+    @GetMapping("/profile")
+    public String profile() {
+        return "profile";
+    }
+
     @GetMapping("/users")
     public String users() {
         return "users";

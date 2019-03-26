@@ -4,7 +4,7 @@
 
 <html>
 <head>
-    <jsp:include page="fragments/links.jsp"/>
+    <jsp:include page="fragments/headTag.jsp"/>
 </head>
 <body>
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
