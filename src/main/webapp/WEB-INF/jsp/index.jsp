@@ -12,14 +12,13 @@
                 <a class="nav-link active" href="/">Home</a>
                 <a class="nav-link" href="products">Products</a>
                 <a class="nav-link" href="login">Log in</a>
-                <a class="nav-link" href="#">Contact</a>
             </nav>
         </div>
     </header>
 
     <main role="main" class="inner cover">
-        <h1 class="cover-heading">Cover your page.</h1>
-        <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+        <h1 class="cover-heading">Store</h1>
+        <p class="lead">Video store offers you a large selection of products to order. To make a purchase requires authorization in the system.</p>
         <p class="lead">
             <a href="login" class="btn btn-lg btn-secondary">Log in</a>
         </p>
