@@ -28,8 +28,7 @@ INSERT INTO user_roles (role, user_id) VALUES
   ('USER', 100001);
 
 INSERT INTO category (name) VALUES
-('Comedy'),
-('Melodrama'),
-('Action'),
-('Horror'),
-('Cartoon');
+('CAMERA'),
+('TV'),
+('MOVIE'),
+('PHOTO');

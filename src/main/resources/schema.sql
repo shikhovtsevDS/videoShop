@@ -3,6 +3,7 @@ DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS products;
 DROP TABLE IF EXISTS user_roles;
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS category;
 DROP SEQUENCE IF EXISTS global_seq;
 
 CREATE SEQUENCE global_seq START 100000;
@@ -60,4 +61,13 @@ CREATE TABLE category
 (
   id          INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
   name        VARCHAR   NOT NULL
+);
+
+CREATE TABLE products_category
+(
+  product_id INTEGER NOT NULL,
+  category_id INTEGER NOT NULL,
+  CONSTRAINT users_category_idx UNIQUE (product_id, category_id),
+  FOREIGN KEY (product_id) REFERENCES orders (id),
+  FOREIGN KEY (category_id) REFERENCES products (id)
 );
