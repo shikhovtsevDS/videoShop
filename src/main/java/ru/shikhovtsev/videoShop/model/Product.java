@@ -38,6 +38,6 @@ public class Product extends AbstractNamedEntity {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "products_category", schema = "public",
             joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "category_id_id", referencedColumnName = "id"))
+            inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id"))
     private List<Category> categories;
 }

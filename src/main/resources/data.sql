@@ -27,8 +27,8 @@ INSERT INTO user_roles (role, user_id) VALUES
   ('ADMIN', 100001),
   ('USER', 100001);
 
-INSERT INTO category (name) VALUES
-('CAMERA'),
-('TV'),
-('MOVIE'),
-('PHOTO');
+INSERT INTO category (name, description) VALUES
+('ALL', 'ALL'),
+('CAMERA', 'Camera equipment'),
+('TV', 'Equipment for television'),
+('PHOTO', 'Equipment for photograph');

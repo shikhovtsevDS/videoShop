@@ -20,6 +20,13 @@
     </header>
     <div class="jumbotron">
         <div class="container">
+            <label class="sr-only">Search </label>
+            <select class="custom-select d-block w-100" required>
+            <option value="">Choose...</option>
+            <c:forEach var="category" items="${categories}">
+                <option value="${category.name}">${category.name}</option>
+            </c:forEach>
+            </select>
             <table class="table table-striped display">
                 <thead>
                 <tr>
