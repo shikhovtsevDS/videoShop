@@ -38,11 +38,11 @@ INSERT INTO category (name, description) VALUES
 
 
 INSERT INTO products_category VALUES
-((SELECT id FROM products WHERE name = 'Camera TheBEST'), (SELECT id FROM products WHERE name = 'CAMERA')),
-((SELECT id FROM products WHERE name = 'Camera betterThenNothing'), (SELECT id FROM products WHERE name = 'CAMERA')),
-((SELECT id FROM products WHERE name = 'Camera'), (SELECT id FROM products WHERE name = 'PHOTO')),
-((SELECT id FROM products WHERE name = 'Camera Professional'), (SELECT id FROM products WHERE name = 'PHOTO')),
-((SELECT id FROM products WHERE name = 'Camera User'), (SELECT id FROM products WHERE name = 'PHOTO')),
-((SELECT id FROM products WHERE name = 'TV Family'), (SELECT id FROM products WHERE name = 'TV')),
-((SELECT id FROM products WHERE name = 'TV Everyone'), (SELECT id FROM products WHERE name = 'TV')),
-((SELECT id FROM products WHERE name = 'TV Travel Version'), (SELECT id FROM products WHERE name = 'TV'));
+((SELECT id FROM products WHERE name = 'Camera TheBEST'), (SELECT id FROM category WHERE name = 'CAMERA')),
+((SELECT id FROM products WHERE name = 'Camera betterThenNothing'), (SELECT id FROM category WHERE name = 'CAMERA')),
+((SELECT id FROM products WHERE name = 'Camera'), (SELECT id FROM category WHERE name = 'PHOTO')),
+((SELECT id FROM products WHERE name = 'Camera Professional'), (SELECT id FROM category WHERE name = 'PHOTO')),
+((SELECT id FROM products WHERE name = 'Camera User'), (SELECT id FROM category WHERE name = 'PHOTO')),
+((SELECT id FROM products WHERE name = 'TV Family'), (SELECT id FROM category WHERE name = 'TV')),
+((SELECT id FROM products WHERE name = 'TV Everyone'), (SELECT id FROM category WHERE name = 'TV')),
+((SELECT id FROM products WHERE name = 'TV Travel Version'), (SELECT id FROM category WHERE name = 'TV'));
