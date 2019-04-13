@@ -22,6 +22,18 @@ public abstract class AbstractBaseEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "global_seq")
     protected Integer id;
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public boolean isNew() {
+        return getId() == null;
+    }
+
     @Override
     public String toString() {
         return String.format("Entity %s (%s)", getClass().getName(), id);

@@ -11,4 +11,6 @@ public interface ProductsRepository extends JpaRepository<Product, Integer> {
     List<Product> findByCost(Double cost);
 
     List<Product> findAllByCategories(Category category);
+
+    void deleteById(Integer id);
 }

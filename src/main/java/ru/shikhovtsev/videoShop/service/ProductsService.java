@@ -11,15 +11,19 @@ import java.util.List;
 @Service
 public class ProductsService {
 
+    private final ProductsRepository productsRepository;
+
     @Autowired
-    private ProductsRepository productsRepository;
+    public ProductsService(ProductsRepository productsRepository) {
+        this.productsRepository = productsRepository;
+    }
 
     public void create(Product product) {
         productsRepository.save(product);
     }
 
-    public void delete(Product product) {
-        productsRepository.delete(product);
+    public void delete(Integer id) {
+        productsRepository.deleteById(id);
     }
 
     public List<Product> getAll() {
@@ -28,5 +32,13 @@ public class ProductsService {
 
     public List<Product> getAllByCategories(Category category) {
         return productsRepository.findAllByCategories(category);
+    }
+
+    public Product get(Integer id) {
+        return productsRepository.findById(id).orElse(null);
+    }
+
+    public void update(Product product) {
+        productsRepository.save(product);
     }
 }
