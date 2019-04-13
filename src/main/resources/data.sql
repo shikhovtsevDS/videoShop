@@ -5,14 +5,17 @@ INSERT INTO users (last_name, first_name, middle_name, email, password) VALUES
 -- ('Last4', 'First4', 'Middle4', 'first4@mail.ru', '$2a$10$yNYcpx8Ucc.kjimb8j6.peYgoY0mAe/0EmG.x66RYDXAE7ncEzLGu'); //123
 
 INSERT INTO products (name, description, cost) VALUES
-('Movie 1', '1', 10),
-('Movie 2', '2', 20),
-('Movie 3', '3', 30),
-('Movie 4', '4', 40),
-('Movie 5', '5', 50),
-('Movie 6', '6', 60),
-('Movie 7', '7', 70);
+('Camera TheBEST', 'Best camera', 100),
+('Camera betterThenNothing', 'Removes and oh well', 20),
+('Camera', 'Just camera', 34),
+('Camera Professional', 'Camera for professional photographers', 34),
+('Camera User', 'Camera for people from people', 34),
+('TV Family', 'Big TV for many people', 70),
+('TV Everyone', 'TV for every human in the world', 10),
+('TV Travel Version', 'Small TV for travelers', 40);
 
+
+--Потом можно удалить
 INSERT INTO orders (location, created_date, delivered_date, state, user_id) VALUES
 ('EKB', '2019-01-01', '2019-02-05', 1, 100000),
 ('EKB', '2019-01-02', '2019-02-06', 2, 100000),
@@ -28,7 +31,18 @@ INSERT INTO user_roles (role, user_id) VALUES
   ('USER', 100001);
 
 INSERT INTO category (name, description) VALUES
-('ALL', 'ALL'),
+('NO', 'No category'),
 ('CAMERA', 'Camera equipment'),
 ('TV', 'Equipment for television'),
 ('PHOTO', 'Equipment for photograph');
+
+
+INSERT INTO products_category VALUES
+((SELECT id FROM products WHERE name = 'Camera TheBEST'), (SELECT id FROM products WHERE name = 'CAMERA')),
+((SELECT id FROM products WHERE name = 'Camera betterThenNothing'), (SELECT id FROM products WHERE name = 'CAMERA')),
+((SELECT id FROM products WHERE name = 'Camera'), (SELECT id FROM products WHERE name = 'PHOTO')),
+((SELECT id FROM products WHERE name = 'Camera Professional'), (SELECT id FROM products WHERE name = 'PHOTO')),
+((SELECT id FROM products WHERE name = 'Camera User'), (SELECT id FROM products WHERE name = 'PHOTO')),
+((SELECT id FROM products WHERE name = 'TV Family'), (SELECT id FROM products WHERE name = 'TV')),
+((SELECT id FROM products WHERE name = 'TV Everyone'), (SELECT id FROM products WHERE name = 'TV')),
+((SELECT id FROM products WHERE name = 'TV Travel Version'), (SELECT id FROM products WHERE name = 'TV'));
