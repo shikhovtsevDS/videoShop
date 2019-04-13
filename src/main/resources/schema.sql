@@ -70,6 +70,6 @@ CREATE TABLE products_category
   product_id INTEGER NOT NULL,
   category_id INTEGER NOT NULL,
   CONSTRAINT products_category_idx UNIQUE (product_id, category_id),
-  FOREIGN KEY (product_id) REFERENCES orders (id),
-  FOREIGN KEY (category_id) REFERENCES products (id)
+  FOREIGN KEY (product_id) REFERENCES products (id),
+  FOREIGN KEY (category_id) REFERENCES category (id)
 );

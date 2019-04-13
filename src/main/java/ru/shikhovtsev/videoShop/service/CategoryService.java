@@ -10,8 +10,16 @@ import java.util.List;
 @Service
 public class CategoryService {
 
+    private final CategoryRepository categoryRepository;
+
     @Autowired
-    private CategoryRepository categoryRepository;
+    public CategoryService(CategoryRepository categoryRepository) {
+        this.categoryRepository = categoryRepository;
+    }
+
+    public Category getByName(String name) {
+        return categoryRepository.findByName(name);
+    }
 
     public List<Category> getAll() {
         return categoryRepository.findAll();

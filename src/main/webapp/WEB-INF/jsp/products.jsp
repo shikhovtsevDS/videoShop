@@ -13,7 +13,6 @@
             <h3 class="masthead-brand">Video store</h3>
             <nav class="nav nav-masthead justify-content-center">
                 <a class="nav-link" href="/">Home</a>
-                <a class="nav-link active" href="products" aria-disabled="true">Products</a>
                 <a class="nav-link" href="login">Log in</a>
             </nav>
         </div>
@@ -22,10 +21,10 @@
         <div class="container">
             <label class="sr-only">Search </label>
             <select class="custom-select d-block w-100" required>
-            <option value="">Choose...</option>
-            <c:forEach var="category" items="${categories}">
-                <option value="${category.name}">${category.name}</option>
-            </c:forEach>
+                <option value="">Choose...</option>
+                <c:forEach var="category" items="${categories}">
+                    <option value="${category.name}">${category.name}</option>
+                </c:forEach>
             </select>
             <table class="table table-striped display">
                 <thead>
@@ -38,7 +37,10 @@
                 <tbody>
                 <c:forEach var="product" items="${products}">
                     <tr>
-                        <td>${product.name}</td>
+                        <td>
+                            <a class="nav-link active" href="products/${product.id}"
+                               aria-disabled="true">${product.name}</a>
+                        </td>
                         <td>${product.description}</td>
                         <td>${product.cost}</td>
                     </tr>
