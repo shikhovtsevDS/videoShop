@@ -51,7 +51,7 @@ public class RootController extends AbstractUserController {
             super.update(userTo, AuthorizedUser.id());
             AuthorizedUser.get().update(userTo);
             status.setComplete();
-            return "redirect:meals";
+            return "redirect:/";
         }
     }
 

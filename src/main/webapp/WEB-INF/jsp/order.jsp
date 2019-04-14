@@ -14,7 +14,7 @@
         <div class="card-header bg-dark text-light">
             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
             Shopping cart
-            <a href="" class="btn btn-outline-info btn-sm pull-right">Continue shopping</a>
+            <a href="/" class="btn btn-outline-info btn-sm pull-right">Continue shopping</a>
             <div class="clearfix"></div>
         </div>
         <c:forEach var="product" items="${products}">
@@ -35,10 +35,8 @@
                     </div>
                     <div class="col-4 col-sm-4 col-md-4">
                         <div class="quantity">
-                            <input type="button" value="+" class="plus">
-                            <input type="number" step="1" max="99" min="1" value="1" title="Qty" class="qty"
+                            <input type="number" step="1" max="99" min="1" value="1" class="qty"
                                    size="4">
-                            <input type="button" value="-" class="minus">
                         </div>
                     </div>
                     <div class="col-2 col-sm-2 col-md-2 text-right">

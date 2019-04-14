@@ -25,7 +25,7 @@
         <div class="card-header bg-dark text-light">
             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
             Shopping cart
-            <a href="/products" class="btn btn-outline-info btn-sm pull-right">Back to products</a>
+            <a href="/" class="btn btn-outline-info btn-sm pull-right">Back</a>
             <div class="clearfix"></div>
         </div>
         <div class="card-body" style="padding-bottom: 0px">
@@ -54,7 +54,7 @@
             <hr>
         </div>
             <div class="pull-right" style="margin: 10px">
-                <a href="" class="btn btn-success pull-right">Add to order</a>
+                <a href="/" class="btn btn-success pull-right">Add to order</a>
             </div>
     </div>
 </div>

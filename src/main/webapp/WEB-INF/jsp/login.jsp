@@ -7,7 +7,6 @@
 <html>
 <head>
     <jsp:include page="fragments/headTag.jsp"/>
-    <link rel="stylesheet" href="resources/css/register.css">
 </head>
 <body class="text-center" style="height: 100%;">
 <jsp:include page="fragments/bodyHeader.jsp"/>
