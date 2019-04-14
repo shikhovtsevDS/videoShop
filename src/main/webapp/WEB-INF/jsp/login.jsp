@@ -34,13 +34,13 @@
 </div>
 
 <script type="text/javascript">
-    <c:if test="${not empty param.username}">
-    setCredentials("${param.username}", "");
+    <c:if test="${not empty param.email}">
+    setCredentials("${param.email}", "");
     </c:if>
 
     function setCredentials(username, password) {
-        $('input[name="email"]').val(username);
-        $('input[name="password"]').val(password);
+        $('input[id="inputEmail"]').val(username);
+        $('input[id="inputPassword"]').val(password);
     }
 </script>
 </body>

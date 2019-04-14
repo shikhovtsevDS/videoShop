@@ -1,22 +1,16 @@
 package ru.shikhovtsev.videoShop.web.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.support.SessionStatus;
+import ru.shikhovtsev.videoShop.AuthorizedUser;
 import ru.shikhovtsev.videoShop.model.User;
+import ru.shikhovtsev.videoShop.to.UserTo;
 
 @Controller
-public class RootController {
-
-    @Autowired
-    private final UserController userController;
-
-    public RootController(UserController userController) {
-        this.userController = userController;
-    }
+public class RootController extends AbstractUserController {
 
     @GetMapping("/")
     public String index() {
@@ -38,9 +32,16 @@ public class RootController {
         return "users";
     }
 
-    @GetMapping("/registration")
-    public String registration() {
-        return "registration";
+    @PostMapping("/profile")
+    public String updateProfile(UserTo userTo, BindingResult result, SessionStatus status) {
+        if (result.hasErrors()) {
+            return "profile";
+        } else {
+            super.update(userTo, AuthorizedUser.id());
+            AuthorizedUser.get().update(userTo);
+            status.setComplete();
+            return "redirect:meals";
+        }
     }
 
     @GetMapping("/register")
@@ -53,7 +54,7 @@ public class RootController {
         if (result.hasErrors()) {
             return "registration";
         } else {
-            userController.create(user);
+            super.create(user);
             status.setComplete();
             return "redirect:login?email=" + user.getEmail();
         }

@@ -1,26 +1,39 @@
 package ru.shikhovtsev.videoShop.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.BatchSize;
+import org.springframework.util.CollectionUtils;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Date;
-import java.util.Set;
+import java.util.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Entity
 @Table(name = "users", schema = "public")
 public class User extends AbstractBaseEntity {
+
+    @Column(name = "first_name", nullable = false)
+    @NotBlank
+    @Size(min = 2, max = 100)
+    private String firstName;
+
+    @Column(name = "middle_name", nullable = false)
+    @NotBlank
+    @Size(min = 2, max = 100)
+    private String middleName;
+
+    @Column(name = "last_name", nullable = false)
+    @NotBlank
+    @Size(min = 2, max = 100)
+    private String lastName;
 
     @Column(name = "email", nullable = false, unique = true)
     @Email
@@ -47,29 +60,23 @@ public class User extends AbstractBaseEntity {
     @NotNull
     private Date registered = new Date();
 
-    @Column(name = "last_name", nullable = false)
-    @NotBlank
-    @Size(min = 2, max = 100)
-    private String lastName;
+    public User(Integer id, String firstName, String middleName, String lastName, String email, String password, UserRole role, UserRole... roles) {
+        this(id, firstName, middleName, lastName, email, password, true, new Date(), EnumSet.of(role, roles));
+    }
 
-    @Column(name = "first_name", nullable = false)
-    @NotBlank
-    @Size(min = 2, max = 100)
-    private String firstName;
+    public User(Integer id, String firstName, String middleName, String lastName, String email, String password, boolean enabled, Date registered, Collection<UserRole> roles) {
+        this.id = id;
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.enabled = enabled;
+        this.registered = registered;
+        setRoles(roles);
+    }
 
-    @Column(name = "middle_name", nullable = false)
-    @NotBlank
-    @Size(min = 2, max = 100)
-    private String middleName;
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", email=" + email +
-                ", name=" + firstName +
-                ", enabled=" + enabled +
-                ", roles=" + roles +
-                '}';
+    public void setRoles(Collection<UserRole> roles) {
+        this.roles = CollectionUtils.isEmpty(roles) ? Collections.emptySet() : EnumSet.copyOf(roles);
     }
 }
