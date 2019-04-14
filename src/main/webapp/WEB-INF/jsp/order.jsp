@@ -4,30 +4,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
-<head>
-    <jsp:include page="fragments/headTag.jsp"/>
-</head>
+<jsp:include page="fragments/headTag.jsp"/>
+
 <body>
 <jsp:include page="fragments/bodyHeader.jsp"/>
 <script src="https://use.fontawesome.com/c560c025cf.js"></script>
-<div class="d-flex w-100 h-100 p-3 mx-auto flex-column" style="max-width: 64em">
-    <header class="masthead mb-auto">
-        <div class="inner">
-            <h3 class="masthead-brand">Video store</h3>
-            <nav class="nav nav-masthead justify-content-center">
-                <a class="nav-link" href="/">Home</a>
-                <a class="nav-link" href="login">Log in</a>
-            </nav>
-        </div>
-    </header>
-<div class="container" style="margin-bottom: 300px">
+<div class="container">
     <div class="card shopping-cart">
         <div class="card-header bg-dark text-light">
             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
             Shopping cart
-            <a href="/products" class="btn btn-outline-info btn-sm pull-right">Back to products</a>
+            <a href="" class="btn btn-outline-info btn-sm pull-right">Continue shopping</a>
             <div class="clearfix"></div>
         </div>
+        <c:forEach var="product" items="${products}">
         <div class="card-body">
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-2 text-center">
@@ -45,21 +35,31 @@
                     </div>
                     <div class="col-4 col-sm-4 col-md-4">
                         <div class="quantity">
-                            <input type="number" step="1" max="99" min="1" value="1" class="qty"
+                            <input type="button" value="+" class="plus">
+                            <input type="number" step="1" max="99" min="1" value="1" title="Qty" class="qty"
                                    size="4">
+                            <input type="button" value="-" class="minus">
                         </div>
+                    </div>
+                    <div class="col-2 col-sm-2 col-md-2 text-right">
+                        <button type="button" class="btn btn-outline-danger btn-xs">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </button>
                     </div>
                 </div>
             </div>
             <hr>
         </div>
+        </c:forEach>
         <div class="card-footer">
             <div class="pull-right" style="margin: 10px">
-                <a href="" class="btn btn-success pull-right">Add to order</a>
+                <a href="" class="btn btn-success pull-right">Checkout</a>
+                <div class="pull-right" style="margin: 5px">
+                    Total price: <b>50.00€</b>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 </body>
 </html>

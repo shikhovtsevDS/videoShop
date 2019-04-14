@@ -2,27 +2,38 @@
 <html>
 <head>
     <jsp:include page="fragments/headTag.jsp"/>
+    <link rel="stylesheet" href="resources/css/header.css">
 </head>
 <body class="text-center">
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-    <header class="masthead mb-auto">
-        <div class="inner">
-            <h3 class="masthead-brand">Video store</h3>
-            <nav class="nav nav-masthead justify-content-center">
-                <a class="nav-link active" href="/" aria-disabled="true">Home</a>
-                <a class="nav-link" href="products">Products</a>
-                <a class="nav-link" href="login">Log in</a>
-            </nav>
+<div class="w-100 h-100">
+    <header>
+        <div class="overlay"></div>
+        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+            <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">
+        </video>
+        <div class="container h-100">
+            <div class="d-flex h-100 text-center align-items-center">
+                <div class="w-100 text-white">
+                    <h1 class="display-3">Video store</h1>
+
+                </div>
+            </div>
         </div>
     </header>
 
-    <main role="main" class="inner cover">
-        <h1 class="cover-heading">Store</h1>
-        <p class="lead">Video store offers you a large selection of products to order. To make a purchase requires authorization in the system.</p>
-        <p class="lead">
-            <a href="login" class="btn btn-lg btn-secondary">Log in</a>
-        </p>
-    </main>
+    <section class="my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <p class="lead mb-0">Video store offers you a large selection of products to order. To make a purchase
+                        requires authorization in the system.</p>
+                    <p class="lead mb-0">
+                        <a href="login" class="btn btn-lg btn-secondary">Log in</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer class="mastfoot mt-auto">
         <div class="inner">
