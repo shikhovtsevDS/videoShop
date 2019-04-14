@@ -40,7 +40,7 @@ public class RootController extends AbstractUserController {
 
     @GetMapping("/users")
     public String users() {
-        return "users2";
+        return "users";
     }
 
     @PostMapping("/profile")
