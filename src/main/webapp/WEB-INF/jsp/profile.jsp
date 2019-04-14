@@ -5,6 +5,7 @@
 <jsp:include page="fragments/headTag.jsp"/>
 <link rel="stylesheet" href="resources/css/register.css">
 <body class="text-center" style="height: 100%;">
+<jsp:include page="fragments/header.jsp"/>
 <div class="container w-100 h-100" style="padding-top: 100px">
     <div class="row">
         <div class="col-lg-10 col-xl-9 mx-auto">
