@@ -41,13 +41,8 @@
                             <label for="inputPassword">Password</label>
                         </div>
 
-                        <div class="form-label-group">
-                            <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
-                            <label for="inputConfirmPassword">Confirm password</label>
-                        </div>
-
-                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">${register ? 'Register' : 'Save changes'}</button>
-                        <a class="d-block text-center mt-2 small" href="#">Sign In</a>
+                        <button class="btn btn-lg btn-dark btn-block text-uppercase" type="submit">${register ? 'Register' : 'Save changes'}</button>
+                        <a class="d-block text-center mt-2 small" href="login">Sign In</a>
                     </form>
                 </div>
             </div>

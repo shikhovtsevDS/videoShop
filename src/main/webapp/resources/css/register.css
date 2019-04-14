@@ -28,6 +28,13 @@ body {
     background-size: cover;
 }
 
+.card-signin .card-img-left_login {
+    width: 45%;
+    /* Link to your background image using in the property below! */
+    background: scroll center url('https://images.unsplash.com/photo-1518021964703-4b2030f03085?ixlib=rb-1.2.1&w=1000&q=80');
+    background-size: cover;
+}
+
 .card-signin .card-body {
     padding: 2rem;
 }

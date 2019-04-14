@@ -31,7 +31,10 @@
                         requires authorization in the system.</p>
                     <br>
                     <p class="lead mb-0">
-                        <a href="profile" class="btn btn-lg btn-secondary">Log in</a>
+                    <div class="w3-bar">
+                        <a href="login" class="btn btn-lg btn-secondary">Sign in</a>
+                        <a href="profile" class="btn btn-lg btn-secondary">Register</a>
+                    </div>
                     </p>
                 </div>
             </div>

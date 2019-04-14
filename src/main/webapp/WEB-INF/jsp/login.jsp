@@ -7,30 +7,35 @@
 <html>
 <head>
     <jsp:include page="fragments/headTag.jsp"/>
+    <link rel="stylesheet" href="resources/css/register.css">
 </head>
-<body class="text-center">
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-    <header class="masthead mb-auto">
-        <div class="inner">
-            <h3 class="masthead-brand">Video store</h3>
-            <nav class="nav nav-masthead justify-content-center">
-                <a class="nav-link" href="/">Home</a>
-                <a class="nav-link" href="products">Products</a>
-                <a class="nav-link active" href="login" aria-disabled="true">Log in</a>
-            </nav>
+<body class="text-center" style="height: 100%;">
+    <div class="container w-100 h-100" style="padding-top: 200px">
+        <div class="row">
+            <div class="col-lg-10 col-xl-9 mx-auto">
+                <div class="card card-signin flex-row my-5">
+                    <div class="card-img-left_login d-none d-md-flex">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="login-heading mb-4">Welcome back!</h3>
+                        <form class="form-signin" name='f' action="spring_security_check" method='POST'>
+                            <div class="form-label-group">
+                                <input type="email" id="inputEmail" class="form-control" name="username" placeholder="Email address" required autofocus>
+                                <label for="inputEmail">Email address</label>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
+                                <label for="inputPassword">Password</label>
+                            </div>
+                            <button class="btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Sign in</button>
+                            <a class="d-block text-center mt-2 small" href="profile">Registration</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-    </header>
-    <form class="form-signin" name='f' action="spring_security_check" method='POST'>
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" name="username" placeholder="Email address" required
-               autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
-        <button class="btn btn-lg btn-secondary" type="submit">Sign in</button>
-    </form>
-    <a class="btn-warning" href="register">Registration</a>
-    <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
+    </div>
 </div>
 
 <script type="text/javascript">
@@ -43,5 +48,10 @@
         $('input[id="inputPassword"]').val(password);
     }
 </script>
+</body>
+
+<link rel="stylesheet" href="resources/css/register.css">
+<body class="text-center" style="height: 100%;">
+
 </body>
 </html>
