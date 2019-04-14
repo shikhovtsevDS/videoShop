@@ -29,7 +29,7 @@
         <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
         <button class="btn btn-lg btn-secondary" type="submit">Sign in</button>
     </form>
-    <button class="btn btn-lg for-register" onclick="">Register</button>
+    <a class="btn-warning" href="register">Registration</a>
     <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
 </div>
 

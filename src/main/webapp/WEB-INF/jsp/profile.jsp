@@ -3,42 +3,20 @@
 
 <html>
 <jsp:include page="fragments/headTag.jsp"/>
-
 <body>
-<%--<jsp:include page="fragments/bodyHeader.jsp"/>--%>
-
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-    <header class="masthead mb-auto">
-        <div class="inner">
-            <h3 class="masthead-brand">Video store</h3>
-            <nav class="nav nav-masthead justify-content-center">
-                <a class="nav-link" href="/">Home</a>
-                <a class="nav-link active" href="products" aria-disabled="true">Products</a>
-                <a class="nav-link" href="login">Log in</a>
-            </nav>
-        </div>
-    </header>
-    <table class="table table-striped display">
-        <thead>
-        <tr>
-            <th>first</th>
-            <th>middle</th>
-            <th>last</th>
-            <th>email</th>
-            <th>password</th>
-        </tr>
-        </thead>
-        <tbody>
-        <%--@elvariable id="userTo" type="ru.shikhovtsev.videoShop.to.UserTo"--%>
-        <tr>
-            <td>${userTo.firstName}</td>
-            <td>${userTo.middleName}</td>
-            <td>${userTo.lastName}</td>
-            <td>${userTo.email}</td>
-            <td>${userTo.password}</td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+<form class="form-signin" action="${register ? 'register' : 'profile'}" method="post">
+    <h1 class="h3 mb-3 font-weight-normal">${register ? "Fill in the registration form" : "Profile"}</h1>
+    <label for="inputFirstname" class="sr-only">Firstname</label>
+    <input name="firstName" id="inputFirstname" class="form-control" placeholder="Firstname" required>
+    <label for="inputMiddlename" class="sr-only">Middlename</label>
+    <input name="middleName" id="inputMiddlename" class="form-control" placeholder="Middlename" required>
+    <label for="inputLastname" class="sr-only">Lastname</label>
+    <input name="lastName" id="inputLastname" class="form-control" placeholder="Lastname" required>
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input name="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <button class="btn btn-lg btn-secondary" type="submit">${register ? 'Зарегистрироваться' : 'Сохранить изменения'}</button>
+</form>
 </body>
 </html>

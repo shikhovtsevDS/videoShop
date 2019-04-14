@@ -1,4 +1,4 @@
-package ru.shikhovtsev.videoShop.web.controller;
+package ru.shikhovtsev.videoShop.web.user;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
