@@ -73,7 +73,7 @@ function failNoty(jqXHR) {
     // https://stackoverflow.com/questions/48229776
     var errorInfo = JSON.parse(jqXHR.responseText);
     failedNote = new Noty({
-        text: "<span class='glyphicon glyphicon-exclamation-sign'></span> &nbsp;" + "Error status" + ": " + jqXHR.status + "<br>" + errorInfo.type + "<br>" + errorInfo.details.join("<br>"),
+        text: "<span class='fa fa-cog'></span> &nbsp;" + "Error status" + ": " + jqXHR.status + "<br>" + errorInfo.type + "<br>" + errorInfo.details.join("<br>"),
         type: "error",
         layout: "bottomRight"
     }).show();
@@ -81,14 +81,14 @@ function failNoty(jqXHR) {
 
 function renderEditBtn(data, type, row) {
     if (type === "display") {
-        return "<a onclick='updateRow(" + row.id + ");'>" +
-            "<span class='glyphicon glyphicon-pencil' aria-hidden='true'></span></a>";
+        return "<button onclick='updateRow(" + row.id + ");'>" +
+            "update</button>";
     }
 }
 
 function renderDeleteBtn(data, type, row) {
     if (type === "display") {
-        return "<a onclick='deleteRow(" + row.id + ");'>" +
-            "<span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a>";
+        return "<button onclick='deleteRow(" + row.id + ");'>" +
+            "delete</i></button>";
     }
 }

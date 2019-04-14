@@ -65,11 +65,6 @@
                         <input type="email" class="form-control mb-4" id="email" name="email" placeholder="Email">
                     </div>
 
-                    <div class="col-xs-9">
-                        <input type="password" class="form-control mb-4" id="password" name="password"
-                               placeholder="Password">
-                    </div>
-
                     <div class="form-group">
                         <div class="col-xs-offset-3 col-xs-9">
                             <button type="button" onclick="save()" class="btn btn-primary">
