@@ -30,7 +30,7 @@
                                 <label for="inputPassword">Password</label>
                             </div>
                             <button class="btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Sign in</button>
-                            <a class="d-block text-center mt-2 small" href="profile">Registration</a>
+                            <a class="d-block text-center mt-2 small" href="register">Registration</a>
                         </form>
                     </div>
                 </div>

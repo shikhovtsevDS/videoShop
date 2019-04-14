@@ -33,7 +33,7 @@
                     <p class="lead mb-0">
                     <div class="w3-bar">
                         <a href="login" class="btn btn-lg btn-secondary">Sign in</a>
-                        <a href="profile" class="btn btn-lg btn-secondary">Register</a>
+                        <a href="register" class="btn btn-lg btn-secondary">Register</a>
                     </div>
                     </p>
                 </div>
