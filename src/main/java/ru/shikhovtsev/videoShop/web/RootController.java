@@ -1,6 +1,7 @@
 package ru.shikhovtsev.videoShop.web;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,14 +9,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.support.SessionStatus;
 import ru.shikhovtsev.videoShop.AuthorizedUser;
 import ru.shikhovtsev.videoShop.model.User;
+import ru.shikhovtsev.videoShop.service.ProductsService;
 import ru.shikhovtsev.videoShop.to.UserTo;
 import ru.shikhovtsev.videoShop.web.user.AbstractUserController;
 
 @Controller
 public class RootController extends AbstractUserController {
 
+    private final ProductsService productsService;
+
+    public RootController(ProductsService productsService) {
+        this.productsService = productsService;
+    }
+
     @GetMapping("/")
-    public String index() {
+    public String index(Model model) {
+        model.addAttribute("products", productsService.getAll());
         return "index";
     }
 

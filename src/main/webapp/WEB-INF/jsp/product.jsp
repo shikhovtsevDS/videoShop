@@ -11,7 +11,7 @@
 <jsp:include page="fragments/bodyHeader.jsp"/>
 <script src="https://use.fontawesome.com/c560c025cf.js"></script>
 <div class="d-flex w-100 h-100 p-3 mx-auto flex-column" style="max-width: 64em">
-    <header class="masthead mb-auto">
+    <header class="masthead mb-auto" style="height: 200px">
         <div class="inner">
             <h3 class="masthead-brand">Video store</h3>
             <nav class="nav nav-masthead justify-content-center">
@@ -20,7 +20,7 @@
             </nav>
         </div>
     </header>
-<div class="container" style="margin-bottom: 300px">
+<div class="container" style="margin-bottom: 250px; margin-top: 100px">
     <div class="card shopping-cart">
         <div class="card-header bg-dark text-light">
             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -28,7 +28,7 @@
             <a href="/products" class="btn btn-outline-info btn-sm pull-right">Back to products</a>
             <div class="clearfix"></div>
         </div>
-        <div class="card-body">
+        <div class="card-body" style="padding-bottom: 0px">
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-2 text-center">
                     <img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew" width="120" height="80">
@@ -53,13 +53,17 @@
             </div>
             <hr>
         </div>
-        <div class="card-footer">
             <div class="pull-right" style="margin: 10px">
                 <a href="" class="btn btn-success pull-right">Add to order</a>
             </div>
-        </div>
     </div>
 </div>
+
+    <footer class="mastfoot mt-auto text-center">
+        <div class="inner">
+            <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
+        </div>
+    </footer>
 </div>
 </body>
 </html>

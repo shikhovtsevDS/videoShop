@@ -1,10 +1,13 @@
-<!DOCTYPE HTML>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
 <html>
 <head>
     <jsp:include page="fragments/headTag.jsp"/>
     <link rel="stylesheet" href="resources/css/header.css">
 </head>
-<body class="text-center">
+<body class="text-center" style="height: max-content;">
 <div class="w-100 h-100">
     <header>
         <div class="overlay"></div>
@@ -15,7 +18,6 @@
             <div class="d-flex h-100 text-center align-items-center">
                 <div class="w-100 text-white">
                     <h1 class="display-3">Video store</h1>
-
                 </div>
             </div>
         </div>
@@ -27,13 +29,48 @@
                 <div class="col-md-8 mx-auto">
                     <p class="lead mb-0">Video store offers you a large selection of products to order. To make a purchase
                         requires authorization in the system.</p>
+                    <br>
                     <p class="lead mb-0">
-                        <a href="login" class="btn btn-lg btn-secondary">Log in</a>
+                        <a href="profile" class="btn btn-lg btn-secondary">Log in</a>
                     </p>
                 </div>
             </div>
+        </div><br><br>
+        <div class="container">
+            <label class="sr-only">Search </label>
+            <select class="custom-select d-block w-100" required>
+                <option value="">Choose...</option>
+                <c:forEach var="category" items="${categories}">
+                    <option value="${category.name}">${category.name}</option>
+                </c:forEach>
+            </select>
+            <br>
+            <table class="table table-striped display">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>desc</th>
+                    <th>cost</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="product" items="${products}">
+                    <tr>
+                        <td>
+                            <strong>
+                                <a class="nav-link active" style="color: black" href="products/${product.id}"
+                                   aria-disabled="true">${product.name}</a>
+                            </strong>
+                        </td>
+                        <td>${product.description}</td>
+                        <td>${product.cost}</td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
         </div>
     </section>
+    <hr>
 
     <footer class="mastfoot mt-auto">
         <div class="inner">
