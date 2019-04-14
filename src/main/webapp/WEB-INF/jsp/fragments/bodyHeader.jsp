@@ -5,8 +5,6 @@
 
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
-        <a href="meals" class="navbar-brand">Заголовок</a>
-
         <div class="collapse navbar-collapse">
             <form:form class="navbar-form navbar-right" action="logout" method="post">
                 <sec:authorize access="isAuthenticated()">
