@@ -5,7 +5,7 @@
 <jsp:include page="fragments/headTag.jsp"/>
 <link rel="stylesheet" href="resources/css/register.css">
 <body class="text-center" style="height: 100%;">
-<jsp:include page="fragments/header.jsp"/>
+<jsp:include page="fragments/bodyHeader.jsp"/>
 <div class="container w-100 h-100" style="padding-top: 100px">
     <div class="row">
         <div class="col-lg-10 col-xl-9 mx-auto">
@@ -14,24 +14,26 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title text-center">${register ? "Fill in the registration form" : "Profile"}</h5>
+
+                    <%--@elvariable id="userTo" type="ru.shikhovtsev.videoShop.to.UserTo"--%>
                     <form class="form-signin">
                         <div class="form-label-group">
-                            <input type="text" id="inputFirstname" class="form-control" placeholder="Firstname" required>
+                            <input type="text" value="${userTo.firstName}" id="inputFirstname" class="form-control" placeholder="Firstname" required>
                             <label for="inputFirstname">Firstname</label>
                         </div>
 
                         <div class="form-label-group">
-                            <input name="middleName" id="inputMiddlename" class="form-control" placeholder="Middlename" required>
+                            <input name="middleName" value="${userTo.middleName}" id="inputMiddlename" class="form-control" placeholder="Middlename" required>
                             <label for="inputMiddlename">Middlename</label>
                         </div>
 
                         <div class="form-label-group">
-                            <input name="lastName" id="inputLastname" class="form-control" placeholder="Lastname" required>
+                            <input name="lastName" value="${userTo.lastName}" id="inputLastname" class="form-control" placeholder="Lastname" required>
                             <label for="inputLastname">Lastname</label>
                         </div>
 
                         <div class="form-label-group">
-                            <input name="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+                            <input name="email" value="${userTo.email}" id="inputEmail" class="form-control" placeholder="Email address" required>
                             <label for="inputEmail">Email address</label>
                         </div>
 

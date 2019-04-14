@@ -4,10 +4,10 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 
 @NoArgsConstructor
-public enum UserRole implements GrantedAuthority {
-    ADMIN,
-    USER,
-    MODER;
+public enum Role implements GrantedAuthority {
+    ROLE_ADMIN,
+    ROLE_USER,
+    ROLE_MODER;
 
     @Override
     public String getAuthority() {

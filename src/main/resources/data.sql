@@ -26,10 +26,10 @@ INSERT INTO orders (location, created_date, delivered_date, state, user_id) VALU
 ('EKB', '2019-01-07', '2019-02-11', 2, 100001);
 
 INSERT INTO user_roles (role, user_id) VALUES
-  ('USER', 100000),
-  ('ADMIN', 100001),
-  ('USER', 100001),
-  ('MODER', 100002);
+  ('ROLE_USER', 100000),
+  ('ROLE_ADMIN', 100001),
+  ('ROLE_USER', 100001),
+  ('ROLE_MODER', 100002);
 
 INSERT INTO category (name, description) VALUES
 ('NO', 'No category'),

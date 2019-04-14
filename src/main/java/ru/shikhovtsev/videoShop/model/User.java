@@ -49,7 +49,7 @@ public class User extends AbstractBaseEntity {
     @Column(name = "role")
     @ElementCollection(fetch = FetchType.EAGER)
     @BatchSize(size = 200)
-    private Set<UserRole> roles;
+    private Set<Role> roles;
 
     @Column(name = "password", nullable = false)
     @NotBlank
@@ -65,11 +65,11 @@ public class User extends AbstractBaseEntity {
     @JsonIgnore
     private LocalDate registered = LocalDate.now();
 
-    public User(Integer id, String firstName, String middleName, String lastName, String email, String password, UserRole role, UserRole... roles) {
+    public User(Integer id, String firstName, String middleName, String lastName, String email, String password, Role role, Role... roles) {
         this(id, firstName, middleName, lastName, email, password, true, LocalDate.now(), EnumSet.of(role, roles));
     }
 
-    public User(Integer id, String firstName, String middleName, String lastName, String email, String password, boolean enabled, LocalDate registered, Collection<UserRole> roles) {
+    public User(Integer id, String firstName, String middleName, String lastName, String email, String password, boolean enabled, LocalDate registered, Collection<Role> roles) {
         this.id = id;
         this.firstName = firstName;
         this.middleName = middleName;
@@ -81,7 +81,7 @@ public class User extends AbstractBaseEntity {
         setRoles(roles);
     }
 
-    public void setRoles(Collection<UserRole> roles) {
+    public void setRoles(Collection<Role> roles) {
         this.roles = CollectionUtils.isEmpty(roles) ? Collections.emptySet() : EnumSet.copyOf(roles);
     }
 }

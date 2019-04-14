@@ -3,13 +3,13 @@ package ru.shikhovtsev.videoShop.util;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.util.StringUtils;
 import ru.shikhovtsev.videoShop.model.User;
-import ru.shikhovtsev.videoShop.model.UserRole;
+import ru.shikhovtsev.videoShop.model.Role;
 import ru.shikhovtsev.videoShop.to.UserTo;
 
 public class UserUtil {
 
     public static User createNewFromTo(UserTo newUser) {
-        return new User(null, newUser.getFirstName(), newUser.getMiddleName(), newUser.getLastName(), newUser.getEmail().toLowerCase(), newUser.getPassword(), UserRole.USER);
+        return new User(null, newUser.getFirstName(), newUser.getMiddleName(), newUser.getLastName(), newUser.getEmail().toLowerCase(), newUser.getPassword(), Role.ROLE_USER);
     }
 
     public static UserTo asTo(User user) {

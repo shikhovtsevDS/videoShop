@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="resources/css/register.css">
 </head>
 <body class="text-center" style="height: 100%;">
-<jsp:include page="fragments/header.jsp"/>
+<jsp:include page="fragments/bodyHeader.jsp"/>
     <div class="container w-100 h-100" style="padding-top: 200px">
         <div class="row">
             <div class="col-lg-10 col-xl-9 mx-auto">
