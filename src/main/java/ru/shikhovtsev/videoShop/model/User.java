@@ -1,5 +1,7 @@
 package ru.shikhovtsev.videoShop.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.hibernate.annotations.BatchSize;
 import org.springframework.util.CollectionUtils;
@@ -9,6 +11,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 import java.util.*;
 
 @Getter
@@ -51,6 +54,7 @@ public class User extends AbstractBaseEntity {
     @Column(name = "password", nullable = false)
     @NotBlank
     @Size(min = 5, max = 100)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
     @Column(name = "enabled", nullable = false)
@@ -58,13 +62,14 @@ public class User extends AbstractBaseEntity {
 
     @Column(name = "registered")
     @NotNull
-    private Date registered = new Date();
+    @JsonIgnore
+    private LocalDate registered = LocalDate.now();
 
     public User(Integer id, String firstName, String middleName, String lastName, String email, String password, UserRole role, UserRole... roles) {
-        this(id, firstName, middleName, lastName, email, password, true, new Date(), EnumSet.of(role, roles));
+        this(id, firstName, middleName, lastName, email, password, true, LocalDate.now(), EnumSet.of(role, roles));
     }
 
-    public User(Integer id, String firstName, String middleName, String lastName, String email, String password, boolean enabled, Date registered, Collection<UserRole> roles) {
+    public User(Integer id, String firstName, String middleName, String lastName, String email, String password, boolean enabled, LocalDate registered, Collection<UserRole> roles) {
         this.id = id;
         this.firstName = firstName;
         this.middleName = middleName;

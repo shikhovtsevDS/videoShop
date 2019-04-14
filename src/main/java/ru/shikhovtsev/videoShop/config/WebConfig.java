@@ -2,8 +2,6 @@ package ru.shikhovtsev.videoShop.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -12,9 +10,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 import ru.shikhovtsev.videoShop.web.interceptor.ModelInterceptor;
-
-import java.nio.charset.Charset;
-import java.util.List;
 
 @Configuration
 @EnableWebMvc
@@ -45,11 +40,12 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addInterceptor(new ModelInterceptor());
     }
 
+    /*//fixme ломает jackson(json)
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         StringHttpMessageConverter converter = new StringHttpMessageConverter();
         converter.setDefaultCharset(Charset.forName("UTF-8"));
 
         converters.add(converter);
-    }
+    }*/
 }
