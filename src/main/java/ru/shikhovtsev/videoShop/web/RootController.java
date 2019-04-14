@@ -1,4 +1,4 @@
-package ru.shikhovtsev.videoShop.web.controller;
+package ru.shikhovtsev.videoShop.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -9,6 +9,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import ru.shikhovtsev.videoShop.AuthorizedUser;
 import ru.shikhovtsev.videoShop.model.User;
 import ru.shikhovtsev.videoShop.to.UserTo;
+import ru.shikhovtsev.videoShop.web.user.AbstractUserController;
 
 @Controller
 public class RootController extends AbstractUserController {
@@ -30,7 +31,7 @@ public class RootController extends AbstractUserController {
 
     @GetMapping("/users")
     public String users() {
-        return "users";
+        return "users2";
     }
 
     @PostMapping("/profile")

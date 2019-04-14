@@ -1,4 +1,4 @@
-package ru.shikhovtsev.videoShop.web.controller;
+package ru.shikhovtsev.videoShop.web.user;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
