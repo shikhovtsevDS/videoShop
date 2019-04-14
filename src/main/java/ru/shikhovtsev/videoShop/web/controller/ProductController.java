@@ -22,6 +22,7 @@ public class ProductController {
     @GetMapping({"/", ""})
     public String getAll(Model model) {
         model.addAttribute("products", productsService.getAll());
+        model.addAttribute("categories", categoryService.getAll());
         return "products";
     }
 

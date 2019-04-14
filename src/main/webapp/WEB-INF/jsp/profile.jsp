@@ -25,15 +25,17 @@
             <th>middle</th>
             <th>last</th>
             <th>email</th>
+            <th>password</th>
         </tr>
         </thead>
         <tbody>
-        <%--@elvariable id="user" type="ru.shikhovtsev.videoShop.model.User"--%>
+        <%--@elvariable id="userTo" type="ru.shikhovtsev.videoShop.to.UserTo"--%>
         <tr>
-            <td>${user.firstName}</td>
-            <td>${user.middleName}</td>
-            <td>${user.lastName}</td>
-            <td>${user.email}</td>
+            <td>${userTo.firstName}</td>
+            <td>${userTo.middleName}</td>
+            <td>${userTo.lastName}</td>
+            <td>${userTo.email}</td>
+            <td>${userTo.password}</td>
         </tr>
         </tbody>
     </table>
