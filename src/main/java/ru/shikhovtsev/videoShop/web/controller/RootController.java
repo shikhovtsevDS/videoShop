@@ -1,6 +1,7 @@
 package ru.shikhovtsev.videoShop.web.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,14 +46,17 @@ public class RootController extends AbstractUserController {
     }
 
     @GetMapping("/register")
-    public String register() {
-        return "registration";
+    public String register(ModelMap model) {
+        model.addAttribute("userTo", new UserTo());
+        model.addAttribute("register", true);
+        return "profile";
     }
 
     @PostMapping("/register")
-    public String saveRegister(User user, BindingResult result, SessionStatus status) {
+    public String saveRegister(User user, BindingResult result, SessionStatus status, ModelMap model) {
         if (result.hasErrors()) {
-            return "registration";
+            model.addAttribute("register", true);
+            return "profile";
         } else {
             super.create(user);
             status.setComplete();
