@@ -1,27 +1,53 @@
 package ru.shikhovtsev.videoShop.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.shikhovtsev.videoShop.model.Order;
 import ru.shikhovtsev.videoShop.repository.OrderRepository;
+import ru.shikhovtsev.videoShop.repository.UserRepository;
 
 import java.util.List;
 
 @Service
 public class OrderService {
 
-    @Autowired
-    private OrderRepository orderRepository;
+    private final OrderRepository orderRepository;
+    private final UserRepository userRepository;
 
-    public List<Order> getOrdersForUser(Integer id) {
-        return orderRepository.findAllByUserId(id);
+    public OrderService(OrderRepository repository, UserRepository userRepository) {
+        this.orderRepository = repository;
+        this.userRepository = userRepository;
     }
 
-    public void createOrder(Order order) {
-        orderRepository.save(order);
+    public Order save(Order Order, int userId) {
+        if (!Order.isNew() && get(Order.getId(), userId) == null) {
+            return null;
+        }
+        Order.setUser(userRepository.getOne(userId));
+        return orderRepository.save(Order);
     }
 
-    public void deleteOrder(Order order) {
-        orderRepository.delete(order);
+    public boolean delete(int id, int userId) {
+//        return orderRepository.delete(id, userId) != 0;
+        return true;
+    }
+
+    public boolean delete(int id) {
+        return orderRepository.delete(id) != 0;
+    }
+
+    public Order get(int id, int userId) {
+        return orderRepository.findById(id).filter(Order -> Order.getUser().getId() == userId).orElse(null);
+    }
+
+    public Order get(int id) {
+        return orderRepository.findById(id).orElse(null);
+    }
+
+    public List<Order> getAll(int userId) {
+        return orderRepository.findAllByUserId(userId);
+    }
+
+    public List<Order> getAll() {
+        return orderRepository.findAll();
     }
 }

@@ -9,12 +9,12 @@ import ru.shikhovtsev.videoShop.repository.ProductsRepository;
 import java.util.List;
 
 @Service
-public class ProductsService {
+public class ProductService {
 
     private final ProductsRepository productsRepository;
 
     @Autowired
-    public ProductsService(ProductsRepository productsRepository) {
+    public ProductService(ProductsRepository productsRepository) {
         this.productsRepository = productsRepository;
     }
 

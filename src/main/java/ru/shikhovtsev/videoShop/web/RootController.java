@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.support.SessionStatus;
 import ru.shikhovtsev.videoShop.AuthorizedUser;
 import ru.shikhovtsev.videoShop.model.User;
-import ru.shikhovtsev.videoShop.service.ProductsService;
+import ru.shikhovtsev.videoShop.service.ProductService;
 import ru.shikhovtsev.videoShop.to.UserTo;
 import ru.shikhovtsev.videoShop.web.user.AbstractUserController;
 
@@ -18,15 +18,15 @@ import javax.validation.Valid;
 @Controller
 public class RootController extends AbstractUserController {
 
-    private final ProductsService productsService;
+    private final ProductService productService;
 
-    public RootController(ProductsService productsService) {
-        this.productsService = productsService;
+    public RootController(ProductService productService) {
+        this.productService = productService;
     }
 
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("products", productsService.getAll());
+        model.addAttribute("products", productService.getAll());
         return "index";
     }
 
@@ -43,6 +43,11 @@ public class RootController extends AbstractUserController {
     @GetMapping("/users")
     public String users() {
         return "users";
+    }
+
+    @GetMapping("/orders")
+    public String orders() {
+        return "orders";
     }
 
     @PostMapping("/profile")
