@@ -27,8 +27,7 @@ public class OrderService {
     }
 
     public boolean delete(int id, int userId) {
-//        return orderRepository.delete(id, userId) != 0;
-        return true;
+        return orderRepository.delete(id, userId) != 0;
     }
 
     public boolean delete(int id) {

@@ -24,7 +24,8 @@ CREATE UNIQUE INDEX users_unique_email_idx ON users (email);
 
 CREATE TABLE orders
 (
-    id            INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
+    id             INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
+    name           VARCHAR NOT NULL,
     created_date   TIMESTAMP DEFAULT now() NOT NULL,
     delivered_date TIMESTAMP DEFAULT now() NOT NULL,
     location       VARCHAR NOT NULL,

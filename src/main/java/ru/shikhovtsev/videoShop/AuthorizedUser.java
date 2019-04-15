@@ -38,6 +38,9 @@ public class AuthorizedUser extends org.springframework.security.core.userdetail
     }
 
     public void update(UserTo newTo) {
+        if(newTo.getPassword() == null) {
+            newTo.setPassword(userTo.getPassword());
+        }
         userTo = newTo;
     }
 
