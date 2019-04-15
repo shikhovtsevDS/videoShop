@@ -21,7 +21,9 @@ public class UserUtil {
         user.setMiddleName(userTo.getMiddleName());
         user.setLastName(userTo.getLastName());
         user.setEmail(userTo.getEmail().toLowerCase());
-        user.setPassword(userTo.getPassword());
+        if (userTo.getPassword() != null) {
+            user.setPassword(userTo.getPassword());
+        }
         return user;
     }
 

@@ -13,6 +13,8 @@ import ru.shikhovtsev.videoShop.service.ProductsService;
 import ru.shikhovtsev.videoShop.to.UserTo;
 import ru.shikhovtsev.videoShop.web.user.AbstractUserController;
 
+import javax.validation.Valid;
+
 @Controller
 public class RootController extends AbstractUserController {
 
@@ -29,7 +31,7 @@ public class RootController extends AbstractUserController {
     }
 
     @GetMapping("/login")
-    public String loginPage(){
+    public String loginPage() {
         return "login";
     }
 
@@ -44,15 +46,9 @@ public class RootController extends AbstractUserController {
     }
 
     @PostMapping("/profile")
-    public String updateProfile(UserTo userTo, BindingResult result, SessionStatus status) {
-        if (result.hasErrors()) {
-            return "profile";
-        } else {
-            super.update(userTo, AuthorizedUser.id());
-            AuthorizedUser.get().update(userTo);
-            status.setComplete();
-            return "redirect:/";
-        }
+    public void updateProfile(@Valid UserTo userTo) {
+        super.update(userTo, AuthorizedUser.id());
+        AuthorizedUser.get().update(userTo);
     }
 
     @GetMapping("/register")
