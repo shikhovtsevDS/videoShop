@@ -29,6 +29,9 @@ public class Product extends AbstractNamedEntity {
     @Column(name = "cost")
     private Double cost;
 
+    @Column(name = "image")
+    private String image;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "orders_products", schema = "public",
             joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"),

@@ -4,15 +4,15 @@ INSERT INTO users (last_name, first_name, middle_name, email, password) VALUES
 ('managlast3', 'managFirst3', 'managMiddle3', 'manager@mail.ru', '$2a$10$yNYcpx8Ucc.kjimb8j6.peYgoY0mAe/0EmG.x66RYDXAE7ncEzLGu'); --123
 -- ('Last4', 'First4', 'Middle4', 'first4@mail.ru', '$2a$10$yNYcpx8Ucc.kjimb8j6.peYgoY0mAe/0EmG.x66RYDXAE7ncEzLGu'); //123
 
-INSERT INTO products (name, description, cost) VALUES
-('Camera TheBEST', 'Best camera', 100),
-('Camera betterThenNothing', 'Removes and oh well', 20),
-('Camera', 'Just camera', 34),
-('Camera Professional', 'Camera for professional photographers', 34),
-('Camera User', 'Camera for people from people', 34),
-('TV Family', 'Big TV for many people', 70),
-('TV Everyone', 'TV for every human in the world', 10),
-('TV Travel Version', 'Small TV for travelers', 40);
+INSERT INTO products (name, description, cost, image) VALUES
+('Camera TheBEST', 'Best camera', 100, 'https://app.coverr.co/s3/mp4/Steaming-Yellowstone.mp4'),
+('Camera betterThenNothing', 'Removes and oh well', 20, 'https://app.coverr.co/s3/mp4/Warm-Hands.mp4'),
+('Camera', 'Just camera', 34, 'https://app.coverr.co/s3/mp4/Twisting-Out.mp4'),
+('Camera Professional', 'Camera for professional photographers', 34, 'https://app.coverr.co/s3/mp4/Sony-cam.mp4'),
+('Camera User', 'Camera for people from people', 34, 'https://app.coverr.co/s3/mp4/Profile-pic.mp4'),
+('TV Family', 'Big TV for many people', 70, 'https://app.coverr.co/s3/mp4/The-Surfers.mp4'),
+('TV Everyone', 'TV for every human in the world', 10, 'https://app.coverr.co/s3/mp4/A-Director-View.mp4'),
+('TV Travel Version', 'Small TV for travelers', 40, 'https://app.coverr.co/s3/mp4/Aloha-Mundo.mp4');
 
 
 --Потом можно удалить
