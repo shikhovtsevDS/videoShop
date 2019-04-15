@@ -2,6 +2,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <html>
 <head>
@@ -49,9 +50,11 @@
                             </div>
                             <hr>
                         </div>
-                        <div class="pull-right" style="margin: 10px">
-                            <a href="/" class="btn btn-success pull-right">Add to order</a>
-                        </div>
+                        <sec:authorize access="isAuthenticated()">
+                            <div class="pull-right" style="margin: 10px">
+                                <a href="/" class="btn btn-success pull-right">Add to order</a>
+                            </div>
+                        </sec:authorize>
                     </div>
                 </div>
             </div>

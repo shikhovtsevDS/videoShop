@@ -45,6 +45,11 @@ public class RootController extends AbstractUserController {
         return "users";
     }
 
+    @GetMapping("/order")
+    public String order() {
+        return "order";
+    }
+
     @GetMapping("/orders")
     public String orders() {
         return "orders";
