@@ -38,7 +38,8 @@ CREATE TABLE products
   id          INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
   name        VARCHAR   NOT NULL,
   cost        INTEGER   NOT NULL,
-  description VARCHAR   NOT NULL
+  description VARCHAR   NOT NULL,
+  image       VARCHAR
 );
 
 CREATE TABLE orders_products

@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <html>
 <head>
@@ -22,6 +24,9 @@
             </div>
         </div>
     </header>
+    <sec:authorize access="isAuthenticated()">
+        <jsp:include page="fragments/bodyHeader.jsp"/>
+    </sec:authorize>
 
     <section class="my-5">
         <div class="container">
@@ -30,12 +35,14 @@
                     <p class="lead mb-0">Video store offers you a large selection of products to order. To make a purchase
                         requires authorization in the system.</p>
                     <br>
-                    <p class="lead mb-0">
-                    <div class="w3-bar">
-                        <a href="login" class="btn btn-lg btn-secondary">Sign in</a>
-                        <a href="register" class="btn btn-lg btn-secondary">Register</a>
-                    </div>
-                    </p>
+                    <sec:authorize access="!isAuthenticated()">
+                        <p class="lead mb-0">
+                        <div class="w3-bar">
+                            <a href="login" class="btn btn-lg btn-secondary">Sign in</a>
+                            <a href="register" class="btn btn-lg btn-secondary">Register</a>
+                        </div>
+                        </p>
+                    </sec:authorize>
                 </div>
             </div>
         </div><br><br>

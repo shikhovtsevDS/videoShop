@@ -24,6 +24,7 @@ header video {
 
 header .container {
     position: relative;
+    margin: 0 auto;
     z-index: 2;
 }
 
