@@ -12,11 +12,6 @@ import java.util.List;
 @RequestMapping("/ajax/admin/users")
 public class AdminAjaxController extends AbstractUserController {
 
-    @GetMapping(value = "/to")
-    public UserTo getUserTo() {
-        return UserUtil.asTo(super.get(100000));
-    }
-
     @Override
     @GetMapping
     public List<User> getAll() {

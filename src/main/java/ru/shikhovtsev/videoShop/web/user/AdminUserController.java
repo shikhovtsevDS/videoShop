@@ -1,3 +1,4 @@
+/*
 package ru.shikhovtsev.videoShop.web.user;
 
 import org.springframework.stereotype.Controller;
@@ -37,3 +38,4 @@ public class AdminUserController extends AbstractUserController {
         super.enable(id, enabled);
     }
 }
+*/

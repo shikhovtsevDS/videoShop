@@ -9,7 +9,8 @@ import ru.shikhovtsev.videoShop.to.UserTo;
 public class UserUtil {
 
     public static User createNewFromTo(UserTo newUser) {
-        return new User(null, newUser.getFirstName(), newUser.getMiddleName(), newUser.getLastName(), newUser.getEmail().toLowerCase(), newUser.getPassword(), Role.ROLE_USER);
+        //TODO fix password
+        return new User(null, newUser.getFirstName(), newUser.getMiddleName(), newUser.getLastName(), newUser.getEmail().toLowerCase(), "123", Role.ROLE_USER);
     }
 
     public static UserTo asTo(User user) {
