@@ -15,4 +15,7 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
     @Query("DELETE FROM Order o WHERE o.id=?1")
     int delete(int id);
 
+    @Query(value = "SELECT product_count FROM orders_products WHERE order_id = ?1 AND product_id = ?2")
+    Long getCount(Long idOrder, Long idProduct);
+
 }

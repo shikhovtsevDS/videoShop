@@ -28,6 +28,9 @@
                     </li>
                     </sec:authorize>
                     <li>
+                        <a class="nav-link" href="orders">Orders</a>
+                    </li>
+                    <li>
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     </li>
                     <li>
