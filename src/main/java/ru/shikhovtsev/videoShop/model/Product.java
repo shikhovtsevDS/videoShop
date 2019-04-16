@@ -27,6 +27,7 @@ public class Product extends AbstractNamedEntity {
     @Column(name = "description", nullable = false)
     private String description;
 
+    @NotNull
     @Column(name = "cost")
     private Integer cost;
 

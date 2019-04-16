@@ -41,6 +41,11 @@ public class RootController extends AbstractUserController {
         return "index";
     }
 
+    @GetMapping("/products")
+    public String products() {
+        return "products";
+    }
+
     @GetMapping("/bag")
     public String bag(ModelMap model) {
         List<Product> bag = productService.getBag(AuthorizedUser.id());
