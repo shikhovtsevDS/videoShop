@@ -11,25 +11,26 @@
 <script type="text/javascript" src="resources/js/productsDatatables.js" defer></script>
 <jsp:include page="fragments/bodyHeader.jsp"/>
 
-<div class="jumbotron">
-    <div class="container">
-        <h3>Products</h3>
-        <br/>
-        <a class="btn btn-primary" onclick="add()">
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-            Add
-        </a>
-        <table class="table table-striped display" id="datatable">
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>description</th>
-                <th>cost</th>
-                <th></th>
-                <th></th>
-            </tr>
-            </thead>
-        </table>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mx-auto" style="text-align: right; max-width: 100%">
+            <h3>Products</h3>
+            <br/>
+            <a class="btn btn-primary" onclick="add()">
+                Add
+            </a>
+            <table class="table table-striped display" id="datatable">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>description</th>
+                    <th>cost</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+            </table>
+        </div>
     </div>
 </div>
 
@@ -46,17 +47,17 @@
 
                     <div class="col-xs-9">
                         <input type="text" class="form-control mb-4" id="name" name="name"
-                               placeholder="Name">
+                               placeholder="Name" required>
                     </div>
 
                     <div class="col-xs-9">
                         <input type="text" class="form-control mb-4" id="description" name="description"
-                               placeholder="description">
+                               placeholder="description" required>
                     </div>
 
                     <div class="col-xs-9">
-                        <input type="text" class="form-control mb-4" id="cost" name="cost"
-                               placeholder="cost">
+                        <input type="number" class="form-control mb-4" id="cost" name="cost"
+                               placeholder="cost" required>
                     </div>
 
                     <div class="form-group">

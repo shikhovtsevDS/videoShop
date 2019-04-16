@@ -17,8 +17,7 @@
         <div class="col-md-8 mx-auto" style="text-align: right; max-width: 100%">
             <h3>Users</h3>
             <br/>
-            <a class="btn btn-dark" onclick="add()">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            <a class="btn btn-primary" onclick="add()">
                 Add
             </a>
             <table class="table table-striped display" id="datatable">
@@ -52,21 +51,21 @@
 
                     <div class="col-xs-9">
                         <input type="text" class="form-control mb-4" id="firstName" name="firstName"
-                               placeholder="First name">
+                               placeholder="First name" required>
                     </div>
 
                     <div class="col-xs-9">
                         <input type="text" class="form-control mb-4" id="middleName" name="middleName"
-                               placeholder="Middle name">
+                               placeholder="Middle name" required>
                     </div>
 
                     <div class="col-xs-9">
                         <input type="text" class="form-control mb-4" id="lastName" name="lastName"
-                               placeholder="Last name">
+                               placeholder="Last name" required>
                     </div>
 
                     <div class="col-xs-9">
-                        <input type="email" class="form-control mb-4" id="email" name="email" placeholder="Email">
+                        <input type="email" class="form-control mb-4" id="email" name="email" placeholder="Email" required>
                     </div>
 
                     <div class="form-group">

@@ -26,6 +26,9 @@
                     <li>
                         <a class="nav-link" href="users">Users</a>
                     </li>
+                    <li>
+                        <a class="nav-link" href="/products">Products</a>
+                    </li>
                     </sec:authorize>
                     <li>
                         <a class="nav-link" href="orders">Orders</a>

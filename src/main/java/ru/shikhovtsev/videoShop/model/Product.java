@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Getter
@@ -23,7 +25,8 @@ public class Product extends AbstractNamedEntity {
         this.cost = cost;
     }
 
-    @NotNull
+    @NotBlank
+    @Size(min = 10, max = 100)
     @Column(name = "description", nullable = false)
     private String description;
 

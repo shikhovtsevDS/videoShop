@@ -30,7 +30,7 @@ public abstract class AbstractProductController {
 
     public Product create(Product Product) {
         log.info("create {}", Product);
-        return null/*productService.create(Product)*/;
+        return productService.create(Product);
     }
 
     public void delete(int id) {
