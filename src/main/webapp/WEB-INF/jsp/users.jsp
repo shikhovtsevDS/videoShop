@@ -5,33 +5,37 @@
 
 <html>
 <jsp:include page="fragments/headTag.jsp"/>
-<body>
+
+<body class="text-center" style="height: 100%;">
 <script type="text/javascript" src="resources/js/noty.js" defer></script>
 <script type="text/javascript" src="resources/js/datatablesUtil.js" defer></script>
 <script type="text/javascript" src="resources/js/userDatatables.js" defer></script>
 
-<div class="jumbotron">
-    <div class="container">
-        <h3>Users</h3>
-        <br/>
-        <a class="btn btn-primary" onclick="add()">
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-            Add
-        </a>
-        <table class="table table-striped display" id="datatable">
-            <thead>
-            <tr>
-                <th>First name</th>
-                <th>Middle name</th>
-                <th>Last name</th>
-                <th>Email</th>
-                <th>Roles</th>
-                <th>Active</th>
-                <th></th>
-                <th></th>
-            </tr>
-            </thead>
-        </table>
+<jsp:include page="fragments/bodyHeader.jsp"/>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mx-auto" style="text-align: right; max-width: 100%">
+            <h3>Users</h3>
+            <br/>
+            <a class="btn btn-dark" onclick="add()">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                Add
+            </a>
+            <table class="table table-striped display" id="datatable">
+                <thead>
+                <tr>
+                    <th>First name</th>
+                    <th>Middle name</th>
+                    <th>Last name</th>
+                    <th>Email</th>
+                    <th>Roles</th>
+                    <th>Active</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+            </table>
+        </div>
     </div>
 </div>
 
@@ -55,7 +59,6 @@
                         <input type="text" class="form-control mb-4" id="middleName" name="middleName"
                                placeholder="Middle name">
                     </div>
-
 
                     <div class="col-xs-9">
                         <input type="text" class="form-control mb-4" id="lastName" name="lastName"

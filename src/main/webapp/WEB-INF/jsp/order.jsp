@@ -4,60 +4,82 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
-<jsp:include page="fragments/headTag.jsp"/>
+<head>
+    <jsp:include page="fragments/headTag.jsp"/>
+    <link rel="stylesheet" href="resources/css/header.css">
+</head>
 
-<body>
+<body class="text-center" style="height: 100%">
 <jsp:include page="fragments/bodyHeader.jsp"/>
 <script src="https://use.fontawesome.com/c560c025cf.js"></script>
-<div class="container">
-    <div class="card shopping-cart">
-        <div class="card-header bg-dark text-light">
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-            Shopping cart
-            <a href="/" class="btn btn-outline-info btn-sm pull-right">Continue shopping</a>
-            <div class="clearfix"></div>
-        </div>
-        <c:forEach var="product" items="${products}">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-12 col-sm-12 col-md-2 text-center">
-                    <img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew" width="120" height="80">
-                </div>
-                <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
-                    <h4 class="product-name"><strong>${product.name}</strong></h4>
-                    <h4>
-                        <small>${product.description}</small>
-                    </h4>
-                </div>
-                <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
-                    <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
-                        <h6><strong>${product.cost} <span class="text-muted">x</span></strong></h6>
-                    </div>
-                    <div class="col-4 col-sm-4 col-md-4">
-                        <div class="quantity">
-                            <input type="number" step="1" max="99" min="1" value="1" class="qty"
-                                   size="4">
+<div class="w-100 h-100">
+    <header style="height: 97%;">
+        <div class="overlay" style="height: max-content;"></div>
+        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+            <source src="https://app.coverr.co/s3/mp4/Indian-Pedestrian.mp4" type="video/mp4">
+        </video>
+        <div class="container h-100">
+            <div class="d-flex h-100 text-center align-items-center">
+                <div class="container" style="margin-bottom: 250px; margin-top: 100px">
+                    <div class="card shopping-cart" style="margin: 0 auto; border-color: #7a7a7a;">
+                        <div class="card-header bg-dark text-light" style="text-align: left">
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            Shopping cart
+                            <a href="/" class="btn btn-outline-info btn-sm pull-right">Continue shopping</a>
+                            <div class="clearfix"></div>
+                        </div>
+                        <c:forEach var="product" items="${products}">
+                            <div class="card-body" style="padding-bottom: 0px">
+                                <div class="row">
+                                    <div class="col-12 col-sm-12 col-md-2 text-center">
+                                        <img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew"
+                                             width="120" height="80">
+                                    </div>
+                                    <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
+                                        <h4 class="product-name"><strong>${product.name}</strong></h4>
+                                        <h4>
+                                            <small>${product.description}</small>
+                                        </h4>
+                                    </div>
+                                    <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
+                                        <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
+                                            <h6><strong>${product.cost} <span class="text-muted">x</span></strong></h6>
+                                        </div>
+                                        <div class="col-4 col-sm-4 col-md-4">
+                                            <div class="quantity">
+                                                <input type="number" step="1" max="99" min="1" value="1" class="qty"
+                                                       size="4">
+                                            </div>
+                                        </div>
+                                        <div class="col-2 col-sm-2 col-md-2 text-right">
+                                            <button type="button" class="btn btn-outline-danger btn-xs">
+                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                            </div>
+                        </c:forEach>
+                        <div class="card-footer">
+                            <div class="pull-right" style="margin: 10px">
+                                <a href="" class="btn btn-success pull-right">Checkout</a>
+                                <div class="pull-right" style="margin: 5px">
+                                    Total price: <b>50.00€</b>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-2 col-sm-2 col-md-2 text-right">
-                        <button type="button" class="btn btn-outline-danger btn-xs">
-                            <i class="fa fa-trash" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <hr>
-        </div>
-        </c:forEach>
-        <div class="card-footer">
-            <div class="pull-right" style="margin: 10px">
-                <a href="" class="btn btn-success pull-right">Checkout</a>
-                <div class="pull-right" style="margin: 5px">
-                    Total price: <b>50.00€</b>
                 </div>
             </div>
         </div>
-    </div>
+    </header>
+
+    <section class="mastfoot mt-auto text-center">
+        <div class="inner">
+            <p class="mb-3 text-muted" style="padding-top: 15px">&copy; 2019</p>
+        </div>
+    </section>
 </div>
 </body>
 </html>
