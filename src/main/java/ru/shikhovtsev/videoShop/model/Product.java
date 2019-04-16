@@ -16,7 +16,7 @@ import java.util.List;
 @Entity
 @Table(name = "products", schema = "public")
 public class Product extends AbstractNamedEntity {
-    public Product(String name, String description, Double cost) {
+    public Product(String name, String description, Integer cost) {
         this.name = name;
         this.description = description;
         this.cost = cost;
@@ -27,18 +27,18 @@ public class Product extends AbstractNamedEntity {
     private String description;
 
     @Column(name = "cost")
-    private Double cost;
+    private Integer cost;
 
     @Column(name = "image")
     private String image;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany
     @JoinTable(name = "orders_products", schema = "public",
             joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "order_id", referencedColumnName = "id"))
     private List<Order> orders;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany
     @JoinTable(name = "products_category", schema = "public",
             joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id"))

@@ -21,7 +21,7 @@ import java.util.List;
 @Table(name = "orders", schema = "public")
 public class Order extends AbstractNamedEntity {
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore

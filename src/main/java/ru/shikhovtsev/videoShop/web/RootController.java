@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.support.SessionStatus;
 import ru.shikhovtsev.videoShop.AuthorizedUser;
+import ru.shikhovtsev.videoShop.model.Order;
 import ru.shikhovtsev.videoShop.model.User;
 import ru.shikhovtsev.videoShop.service.OrderService;
 import ru.shikhovtsev.videoShop.service.ProductService;
 import ru.shikhovtsev.videoShop.to.UserTo;
+import ru.shikhovtsev.videoShop.util.OrderUtil;
 import ru.shikhovtsev.videoShop.web.user.AbstractUserController;
 
 import javax.validation.Valid;
@@ -36,7 +38,10 @@ public class RootController extends AbstractUserController {
 
     @GetMapping("/bag")
     public String bag(ModelMap model) {
-        model.addAttribute("order", orderService.getBag(AuthorizedUser.id()));
+        Order bag = orderService.getBag(AuthorizedUser.id());
+        model.addAttribute("order", bag);
+        model.addAttribute("products", bag.getProducts());
+        model.addAttribute("totalCost", OrderUtil.totalCost(bag));
         return "order";
     }
 

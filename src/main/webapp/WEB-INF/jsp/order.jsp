@@ -65,7 +65,7 @@
                             <div class="pull-right" style="margin: 10px">
                                 <a href="" class="btn btn-success pull-right">Checkout</a>
                                 <div class="pull-right" style="margin: 5px">
-                                    Total price: <b>50.00€</b>
+                                    Total price: <b>${totalCost}€</b>
                                 </div>
                             </div>
                         </div>
