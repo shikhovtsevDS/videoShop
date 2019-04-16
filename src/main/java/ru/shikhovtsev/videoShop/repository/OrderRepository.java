@@ -34,4 +34,8 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
 
     @Query(value = "SELECT * FROM public.orders WHERE user_id = ?1 AND confirmed=false", nativeQuery = true)
     Order getBag(int userId);
+
+    @Query(value = "INSERT INTO public.orders_products VALUES (?1, ?2)",
+        nativeQuery = true)
+    void insertIntoOrdersProducts(int orderId, int productId);
 }

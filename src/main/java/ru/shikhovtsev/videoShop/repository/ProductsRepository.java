@@ -18,4 +18,8 @@ public interface ProductsRepository extends JpaRepository<Product, Integer> {
     @Query(value = "SELECT * FROM public.products WHERE id in (SELECT product_id FROM users_products WHERE user_id = ?1)",
             nativeQuery = true)
     List<Product> getAllByUserId(int userId);
+
+    @Query(value = "DELETE FROM public.users_products WHERE user_id = ?1 and product_id = ?2",
+            nativeQuery = true)
+    void deleteFromUsersProducts(int userId, int productId);
 }

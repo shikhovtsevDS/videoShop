@@ -53,7 +53,7 @@
                         </c:forEach>
                         <div class="card-footer">
                             <div class="pull-right" style="margin: 10px">
-                                <a href="" class="btn btn-success pull-right">Confirm</a>
+                                <a onclick="makeOrder()" class="btn btn-success pull-right">Confirm</a>
                                 <div class="pull-right" style="margin: 5px">
                                     Total price: <b>${totalCost}€</b>
                                 </div>
@@ -70,6 +70,45 @@
             <p class="mb-3 text-muted" style="padding-top: 15px">&copy; 2019</p>
         </div>
     </section>
+</div>
+
+<div class="modal fade" id="makeOrd">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title card-header info-color white-text text-center py-4" id="ordModalTitle"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="detailsForm">
+                    <input type="hidden" id="id" name="id">
+
+                    <div class="col-xs-9">
+                        <input type="text" class="form-control mb-4" id="name" name="Name"
+                               placeholder="Name">
+                    </div>
+
+                    <div class="col-xs-9">
+                        <input type="text" class="form-control mb-4" id="location" name="location"
+                               placeholder="Location">
+                    </div>
+
+                    <div class="col-xs-9">
+                        <input type="date" class="form-control mb-4" id="deliveredDate" name="deliveredDate"
+                               placeholder="Delivered date">
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+                            <button type="button" onclick="save()" class="btn btn-primary">
+                                <span class="badge badge-success" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

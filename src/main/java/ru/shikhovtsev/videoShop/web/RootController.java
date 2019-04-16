@@ -97,4 +97,13 @@ public class RootController extends AbstractUserController {
             return "redirect:login?email=" + userTo.getEmail();
         }
     }
+
+    @PostMapping(value = "/order/{id}")
+    public void deleteFromUsersProducts(@PathVariable("id") int id) {
+        productService.deleteFromUsersProducts(AuthorizedUser.get().getUserTo().getId(), id);
+    }
+
+    public void saveOrder(@Valid Order order) {
+        orderService.saveOrder(productService.getBag(AuthorizedUser.id()), order);
+    }
 }

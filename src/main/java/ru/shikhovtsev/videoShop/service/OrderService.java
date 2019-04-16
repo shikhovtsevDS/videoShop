@@ -3,7 +3,9 @@ package ru.shikhovtsev.videoShop.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
+import ru.shikhovtsev.videoShop.AuthorizedUser;
 import ru.shikhovtsev.videoShop.model.Order;
+import ru.shikhovtsev.videoShop.model.Product;
 import ru.shikhovtsev.videoShop.repository.OrderRepositoryExtended;
 
 import java.util.List;
@@ -69,5 +71,10 @@ public class OrderService {
 
     public void updateCount(int id, int count, int userId) {
         repository.updateCount(id, count, userId);
+    }
+
+    public void saveOrder(List<Product> products, Order order) {
+        Order temp = repository.save(order, AuthorizedUser.get().getUserTo().getId());
+        products.stream().forEach(t -> repository.insertIntoOrdersProducts(temp.getId(), t.getId()));
     }
 }

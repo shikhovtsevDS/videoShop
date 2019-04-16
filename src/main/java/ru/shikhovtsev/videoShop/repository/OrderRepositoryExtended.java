@@ -69,4 +69,8 @@ public class OrderRepositoryExtended {
     public Order getBag(int userId) {
         return orderRepository.getBag(userId);
     }
+
+    public void insertIntoOrdersProducts(int orderId, int productId) {
+        orderRepository.insertIntoOrdersProducts(orderId, productId);
+    }
 }

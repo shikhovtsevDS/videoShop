@@ -47,4 +47,8 @@ public class ProductService {
     public List<Product> getBag(int userId) {
         return productsRepository.getAllByUserId(userId);
     }
+
+    public void deleteFromUsersProducts(int userId, int productId) {
+        productsRepository.deleteFromUsersProducts(userId, productId);
+    }
 }
