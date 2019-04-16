@@ -3,6 +3,7 @@ package ru.shikhovtsev.videoShop.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.shikhovtsev.videoShop.model.Category;
+import ru.shikhovtsev.videoShop.model.Order;
 import ru.shikhovtsev.videoShop.model.Product;
 import ru.shikhovtsev.videoShop.repository.ProductsRepository;
 
@@ -40,5 +41,10 @@ public class ProductService {
 
     public void update(Product product) {
         productsRepository.save(product);
+    }
+
+
+    public List<Product> getBag(int userId) {
+        return productsRepository.getAllByUserId(userId);
     }
 }

@@ -1,5 +1,6 @@
 package ru.shikhovtsev.videoShop.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -43,4 +44,8 @@ public class Product extends AbstractNamedEntity {
             joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id"))
     private List<Category> categories;
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "products")
+    private List<User> users;
 }

@@ -51,7 +51,7 @@
             <select class="custom-select d-block w-100" required>
                 <option value="">Choose...</option>
                 <c:forEach var="category" items="${categories}">
-                    <option value="${category.name}">${category.name}</option>
+                    <option value="${category.description}">${category.description}</option>
                 </c:forEach>
             </select>
             <br>

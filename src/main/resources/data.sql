@@ -54,6 +54,7 @@ VALUES ('NO', 'No category'),
 INSERT INTO products_category
 VALUES ((SELECT id FROM products WHERE name = 'Camera TheBEST'), (SELECT id FROM category WHERE name = 'CAMERA')),
        ((SELECT id FROM products WHERE name = 'Camera betterThenNothing'), (SELECT id FROM category WHERE name = 'CAMERA')),
+       ((SELECT id FROM products WHERE name = 'Camera'), (SELECT id FROM category WHERE name = 'CAMERA')),
        ((SELECT id FROM products WHERE name = 'Camera'), (SELECT id FROM category WHERE name = 'PHOTO')),
        ((SELECT id FROM products WHERE name = 'Camera Professional'), (SELECT id FROM category WHERE name = 'PHOTO')),
        ((SELECT id FROM products WHERE name = 'Camera User'), (SELECT id FROM category WHERE name = 'PHOTO')),
@@ -62,6 +63,17 @@ VALUES ((SELECT id FROM products WHERE name = 'Camera TheBEST'), (SELECT id FROM
        ((SELECT id FROM products WHERE name = 'TV Travel Version'), (SELECT id FROM category WHERE name = 'TV'));
 
 INSERT INTO orders_products
-VALUES ((SELECT id FROM orders WHERE name = 'Order 3914'), (SELECT id FROM products WHERE name = 'Camera TheBEST')),
+VALUES ((SELECT id FROM orders WHERE name = 'Order 3914'), (SELECT id FROM products WHERE name = 'TV Travel Version')),
        ((SELECT id FROM orders WHERE name = 'Order 3914'), (SELECT id FROM products WHERE name = 'Camera betterThenNothing')),
-       ((SELECT id FROM orders WHERE name = 'Order 3914'), (SELECT id FROM products WHERE name = 'Camera Professional'));
+       ((SELECT id FROM orders WHERE name = 'Order 3914'), (SELECT id FROM products WHERE name = 'Camera Professional')),
+       ((SELECT id FROM orders WHERE name = 'Order 39135'), (SELECT id FROM products WHERE name = 'Camera TheBEST')),
+       ((SELECT id FROM orders WHERE name = 'Order 39135'), (SELECT id FROM products WHERE name = 'TV Family')),
+       ((SELECT id FROM orders WHERE name = 'Order 393127'), (SELECT id FROM products WHERE name = 'Camera Professional'));
+
+INSERT INTO users_products
+VALUES ((SELECT id FROM users WHERE email = 'manager@mail.ru'), (SELECT id FROM products WHERE name = 'TV Travel Version')),
+       ((SELECT id FROM users WHERE email = 'manager@mail.ru'), (SELECT id FROM products WHERE name = 'Camera betterThenNothing')),
+       ((SELECT id FROM users WHERE email = 'manager@mail.ru'), (SELECT id FROM products WHERE name = 'Camera Professional')),
+       ((SELECT id FROM users WHERE email = 'admin@mail.ru'), (SELECT id FROM products WHERE name = 'Camera TheBEST')),
+       ((SELECT id FROM users WHERE email = 'admin@mail.ru'), (SELECT id FROM products WHERE name = 'TV Family')),
+       ((SELECT id FROM users WHERE email = 'admin@mail.ru'), (SELECT id FROM products WHERE name = 'Camera Professional'));

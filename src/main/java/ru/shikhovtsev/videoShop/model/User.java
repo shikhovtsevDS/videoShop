@@ -51,6 +51,12 @@ public class User extends AbstractBaseEntity {
     @BatchSize(size = 200)
     private Set<Role> roles;
 
+    @ManyToMany
+    @JoinTable(name = "users_products", schema = "public",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"))
+    private List<Product> products;
+
     @Column(name = "password", nullable = false)
     @NotBlank
     @Size(min = 5, max = 100)

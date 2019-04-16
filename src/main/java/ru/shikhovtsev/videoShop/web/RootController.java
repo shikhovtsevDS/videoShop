@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.shikhovtsev.videoShop.AuthorizedUser;
 import ru.shikhovtsev.videoShop.model.Order;
+import ru.shikhovtsev.videoShop.model.Product;
+import ru.shikhovtsev.videoShop.service.CategoryService;
 import ru.shikhovtsev.videoShop.service.OrderService;
 import ru.shikhovtsev.videoShop.service.ProductService;
 import ru.shikhovtsev.videoShop.to.UserTo;
@@ -17,29 +19,32 @@ import ru.shikhovtsev.videoShop.util.UserUtil;
 import ru.shikhovtsev.videoShop.web.user.AbstractUserController;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class RootController extends AbstractUserController {
 
     private final ProductService productService;
     private final OrderService orderService;
+    private final CategoryService categoryService;
 
-    public RootController(ProductService productService, OrderService orderService) {
+    public RootController(ProductService productService, OrderService orderService, CategoryService categoryService) {
         this.productService = productService;
         this.orderService = orderService;
+        this.categoryService = categoryService;
     }
 
     @GetMapping("/")
     public String index(Model model) {
         model.addAttribute("products", productService.getAll());
+        model.addAttribute("categories", categoryService.getAll());
         return "index";
     }
 
     @GetMapping("/bag")
     public String bag(ModelMap model) {
-        Order bag = orderService.getBag(AuthorizedUser.id());
-        model.addAttribute("order", bag);
-        model.addAttribute("products", bag.getProducts());
+        List<Product> bag = productService.getBag(AuthorizedUser.id());
+        model.addAttribute("products", bag);
         model.addAttribute("totalCost", OrderUtil.totalCost(bag));
         return "order";
     }

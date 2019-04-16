@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS orders_products;
 DROP TABLE IF EXISTS products_category;
+DROP TABLE IF EXISTS users_products;
 DROP TABLE IF EXISTS user_roles;
 DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS products;
@@ -48,7 +49,6 @@ CREATE TABLE orders_products
 (
   order_id      INTEGER NOT NULL,
   product_id    INTEGER NOT NULL,
-  product_count INTEGER,
   CONSTRAINT order_products_idx UNIQUE (order_id, product_id),
   FOREIGN KEY (order_id) REFERENCES orders (id),
   FOREIGN KEY (product_id) REFERENCES products (id)
@@ -76,4 +76,13 @@ CREATE TABLE products_category
   CONSTRAINT products_category_idx UNIQUE (product_id, category_id),
   FOREIGN KEY (product_id) REFERENCES products (id),
   FOREIGN KEY (category_id) REFERENCES category (id)
+);
+
+CREATE TABLE users_products
+(
+  user_id INTEGER NOT NULL,
+  product_id INTEGER NOT NULL,
+  CONSTRAINT users_products_idx UNIQUE (user_id, product_id),
+  FOREIGN KEY (user_id) REFERENCES users (id),
+  FOREIGN KEY (product_id) REFERENCES products (id)
 );
