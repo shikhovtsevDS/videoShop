@@ -32,7 +32,7 @@ public class AdminAjaxUserController extends AbstractUserController {
     @PostMapping
     public void createOrUpdate(@Valid UserTo userTo) {
         if (userTo.isNew()) {
-            super.create(UserUtil.createNewFromTo(userTo));
+            super.create(UserUtil.createNewFromTo(userTo, "123"));
         } else {
             super.update(userTo, userTo.getId());
         }

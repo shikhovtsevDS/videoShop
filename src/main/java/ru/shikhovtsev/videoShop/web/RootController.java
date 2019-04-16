@@ -3,19 +3,17 @@ package ru.shikhovtsev.videoShop.web;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.support.SessionStatus;
 import ru.shikhovtsev.videoShop.AuthorizedUser;
 import ru.shikhovtsev.videoShop.model.Order;
-import ru.shikhovtsev.videoShop.model.User;
 import ru.shikhovtsev.videoShop.service.OrderService;
 import ru.shikhovtsev.videoShop.service.ProductService;
 import ru.shikhovtsev.videoShop.to.UserTo;
 import ru.shikhovtsev.videoShop.util.OrderUtil;
+import ru.shikhovtsev.videoShop.util.UserUtil;
 import ru.shikhovtsev.videoShop.web.user.AbstractUserController;
 
 import javax.validation.Valid;
@@ -79,17 +77,6 @@ public class RootController extends AbstractUserController {
         return "profile";
     }
 
-    @PostMapping("/register")
-    public String saveRegister(User user, BindingResult result, SessionStatus status, ModelMap model) {
-        if (result.hasErrors()) {
-            model.addAttribute("register", true);
-            return "profile";
-        } else {
-            super.create(user);
-            status.setComplete();
-            return "redirect:login?email=" + user.getEmail();
-        }
-    }
 
     @RestController
     public static class AjaxRootController extends AbstractUserController {
@@ -97,6 +84,12 @@ public class RootController extends AbstractUserController {
         public void updateProfile(@Valid UserTo userTo) {
             super.update(userTo, AuthorizedUser.id());
             AuthorizedUser.get().update(userTo);
+        }
+
+        @PostMapping("/register")
+        public String saveRegister(@Valid UserTo userTo) {
+            super.create(UserUtil.createNewFromTo(userTo, "qwerty123"));
+            return "redirect:login?email=" + userTo.getEmail();
         }
     }
 }

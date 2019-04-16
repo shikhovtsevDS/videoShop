@@ -49,7 +49,7 @@
                             <label for="inputPassword">Password</label>
                         </div>
 
-                        <button type="button" class="btn btn-lg btn-dark btn-block text-uppercase" onclick="save()">${register ? 'Register' : 'Save changes'}</button>
+                        <button type="button" class="btn btn-lg btn-dark btn-block text-uppercase" onclick="${register ? 'register()' : 'save()'}">${register ? 'Register' : 'Save changes'}</button>
                         <a class="d-block text-center mt-2 small" href="login">Sign In</a>
                     </form>
                 </div>

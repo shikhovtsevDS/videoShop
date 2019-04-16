@@ -63,7 +63,7 @@
                         </c:forEach>
                         <div class="card-footer">
                             <div class="pull-right" style="margin: 10px">
-                                <a href="" class="btn btn-success pull-right">Checkout</a>
+                                <a href="" class="btn btn-success pull-right">Confirm</a>
                                 <div class="pull-right" style="margin: 5px">
                                     Total price: <b>${totalCost}€</b>
                                 </div>
