@@ -13,4 +13,7 @@ function save() {
 
 $(function () {
     form = $('#profileForm');
+    $(document).ajaxError(function (event, jqXHR, options, jsExc) {
+        failNoty(jqXHR);
+    });
 });

@@ -7,6 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.support.SessionStatus;
 import ru.shikhovtsev.videoShop.AuthorizedUser;
 import ru.shikhovtsev.videoShop.model.Order;
@@ -71,12 +72,6 @@ public class RootController extends AbstractUserController {
         return "order";
     }
 
-    @PostMapping("/profile")
-    public void updateProfile(@Valid UserTo userTo) {
-        super.update(userTo, AuthorizedUser.id());
-        AuthorizedUser.get().update(userTo);
-    }
-
     @GetMapping("/register")
     public String register(ModelMap model) {
         model.addAttribute("userTo", new UserTo());
@@ -93,6 +88,15 @@ public class RootController extends AbstractUserController {
             super.create(user);
             status.setComplete();
             return "redirect:login?email=" + user.getEmail();
+        }
+    }
+
+    @RestController
+    public static class AjaxRootController extends AbstractUserController {
+        @PostMapping("/profile")
+        public void updateProfile(@Valid UserTo userTo) {
+            super.update(userTo, AuthorizedUser.id());
+            AuthorizedUser.get().update(userTo);
         }
     }
 }
