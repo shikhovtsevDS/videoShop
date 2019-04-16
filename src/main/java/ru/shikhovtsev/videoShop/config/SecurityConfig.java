@@ -47,7 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl("/spring_security_check")
                 //FIXME change to Profile.jsp
                 .defaultSuccessUrl("/")
-                .failureUrl("/login?error")
+                .failureUrl("/login?error=bad")
                 .usernameParameter("username")
                 .passwordParameter("password")
                 //For logout page
