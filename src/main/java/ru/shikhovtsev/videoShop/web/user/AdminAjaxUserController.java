@@ -1,11 +1,7 @@
 package ru.shikhovtsev.videoShop.web.user;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.shikhovtsev.videoShop.model.User;
-import ru.shikhovtsev.videoShop.service.UserService;
 import ru.shikhovtsev.videoShop.to.UserTo;
 import ru.shikhovtsev.videoShop.util.UserUtil;
 
@@ -14,20 +10,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/ajax/admin/users")
-public class AdminAjaxUserController {
-
-    private final Logger log = LoggerFactory.getLogger(getClass());
-
-    private final UserService service;
-
-    @Autowired
-    public AdminAjaxUserController(UserService service) {
-        this.service = service;
-    }
+public class AdminAjaxUserController extends AbstractUserController {
 
     @GetMapping
     public List<User> getAll() {
-        log.info("getAll");
         return service.getAll();
     }
 
@@ -46,12 +32,9 @@ public class AdminAjaxUserController {
     @PostMapping
     public void createOrUpdate(@Valid UserTo userTo) {
         if (userTo.isNew()) {
-            User newUser = UserUtil.createNewFromTo(userTo);
-            log.info("create {}", newUser);
-            service.create(newUser);
+            super.create(UserUtil.createNewFromTo(userTo));
         } else {
-            log.info("update {} with id={}", userTo, userTo.getId());
-            service.update(userTo);
+            super.update(userTo, userTo.getId());
         }
     }
 
