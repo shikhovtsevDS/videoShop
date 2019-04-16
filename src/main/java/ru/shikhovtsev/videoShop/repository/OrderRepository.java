@@ -21,10 +21,17 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
     int delete(int id);
 
     @Query(value = "SELECT product_count FROM orders_products WHERE order_id = ?1 AND product_id = ?2", nativeQuery = true)
-    Long getCount(int idOrder, int idProduct);
+    int getCount(int idOrder, int idProduct);
 
     @Transactional
     @Modifying
     @Query("DELETE FROM Order o WHERE o.id=:id AND o.user.id=:userId")
     int delete(@Param("id") int id, @Param("userId") int userId);
+
+
+    @Query(value = "UPDATE orders_products SET product_count=?2 WHERE order_id=?1", nativeQuery = true)
+    int updateCount(int id, int count);
+
+    @Query(value = "SELECT * FROM public.orders WHERE user_id = ?1 AND confirmed=false", nativeQuery = true)
+    Order getBag(int userId);
 }

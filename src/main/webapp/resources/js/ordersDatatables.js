@@ -1,22 +1,9 @@
-var ajaxUrl = "ajax/orders/";
+var ajaxUrl = "ajax/profile/orders/";
 var datatableApi;
 
 function updateTable() {
     $.get(ajaxUrl, updateTableByData);
 }
-
-// http://api.jquery.com/jQuery.ajax/#using-converters
-/*$.ajaxSetup({
-    converters: {
-        "text json": function (stringData) {
-            var json = JSON.parse(stringData);
-            $(json).each(function () {
-                this.dateTime = this.dateTime.replace('T', ' ').substr(0, 16);
-            });
-            return json;
-        }
-    }
-});*/
 
 $(function () {
     datatableApi = $("#datatable").DataTable({
@@ -37,10 +24,13 @@ $(function () {
                 "data": "deliveredDate"
             },
             {
-                "render": function renderEditBtn(data, type, row) {
+                "data": "state"
+            },
+            {
+                "render": function renderOrderBtn(data, type, row) {
                     if (type === "display") {
-                        return "<a class=\"nav-link active\" href=\"products/" + row.id + "}\"\n" +
-                            "aria-disabled=\"true\">update</a>";
+                        return "<a class=\"nav-link active\" href=\"orders/" + row.id + "\"\n" +
+                            "aria-disabled=\"true\">Check Order</a>";
                     }
                 },
                 "defaultContent": "",

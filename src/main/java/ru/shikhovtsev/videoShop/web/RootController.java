@@ -5,10 +5,12 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.support.SessionStatus;
 import ru.shikhovtsev.videoShop.AuthorizedUser;
 import ru.shikhovtsev.videoShop.model.User;
+import ru.shikhovtsev.videoShop.service.OrderService;
 import ru.shikhovtsev.videoShop.service.ProductService;
 import ru.shikhovtsev.videoShop.to.UserTo;
 import ru.shikhovtsev.videoShop.web.user.AbstractUserController;
@@ -19,15 +21,23 @@ import javax.validation.Valid;
 public class RootController extends AbstractUserController {
 
     private final ProductService productService;
+    private final OrderService orderService;
 
-    public RootController(ProductService productService) {
+    public RootController(ProductService productService, OrderService orderService) {
         this.productService = productService;
+        this.orderService = orderService;
     }
 
     @GetMapping("/")
     public String index(Model model) {
         model.addAttribute("products", productService.getAll());
         return "index";
+    }
+
+    @GetMapping("/bag")
+    public String bag(ModelMap model) {
+        model.addAttribute("order", orderService.getBag(AuthorizedUser.id()));
+        return "order";
     }
 
     @GetMapping("/login")
@@ -45,14 +55,15 @@ public class RootController extends AbstractUserController {
         return "users";
     }
 
-    @GetMapping("/order")
-    public String order() {
-        return "order";
-    }
-
     @GetMapping("/orders")
     public String orders() {
         return "orders";
+    }
+
+    @GetMapping("/orders/{id}")
+    public String order(@PathVariable("id") int id, ModelMap model) {
+        model.addAttribute("order", orderService.get(id, AuthorizedUser.id()));
+        return "order";
     }
 
     @PostMapping("/profile")

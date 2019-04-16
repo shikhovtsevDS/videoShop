@@ -16,14 +16,14 @@ INSERT INTO products (name, description, cost, image) VALUES
 
 
 --Потом можно удалить
-INSERT INTO orders (name, location, created_date, delivered_date, state, user_id) VALUES
-('Order 3914', 'EKB', '2019-01-01', '2019-02-05', 1, 100000),
-('Order 393127', 'EKB', '2019-01-02', '2019-02-06', 2, 100000),
-('Order 39235', 'EKB', '2019-01-03', '2019-02-07', 3, 100000),
-('Order 39325', 'EKB', '2019-01-04', '2019-02-08', 4, 100001),
-('Order 39557', 'EKB', '2019-01-05', '2019-02-09', 0, 100001),
-('Order 39135', 'EKB', '2019-01-06', '2019-02-10', 1, 100001),
-('Order 39536', 'EKB', '2019-01-07', '2019-02-11', 2, 100001);
+INSERT INTO orders (name, location, created_date, delivered_date, state, confirmed, user_id) VALUES
+('Order 3914', 'EKB', '2019-01-01', '2019-02-05', 1, true, 100000),
+('Order 393127', 'EKB', '2019-01-02', '2019-02-06', 2, true, 100000),
+('Order 39235', 'EKB', '2019-01-03', '2019-02-07', 3, false, 100000),
+('Order 39325', 'EKB', '2019-01-04', '2019-02-08', 4, true, 100001),
+('Order 39557', 'EKB', '2019-01-05', '2019-02-09', 0, true, 100001),
+('Order 39135', 'EKB', '2019-01-06', '2019-02-10', 1, true, 100001),
+('Order 39536', 'EKB', '2019-01-07', '2019-02-11', 2, true, 100001);
 
 INSERT INTO user_roles (role, user_id) VALUES
   ('ROLE_USER', 100000),

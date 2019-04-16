@@ -43,6 +43,9 @@ public class Order extends AbstractNamedEntity {
     @Column(name = "state")
     private DeliveryState state;
 
+    @Column(name = "confirmed", nullable = false)
+    private boolean confirmed = false;
+
     @JsonIgnore
     @ManyToMany(mappedBy = "orders")
     private List<Product> products;

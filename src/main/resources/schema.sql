@@ -30,6 +30,7 @@ CREATE TABLE orders
     delivered_date TIMESTAMP DEFAULT now() NOT NULL,
     location       VARCHAR NOT NULL,
     state          INTEGER,
+    confirmed        BOOL DEFAULT FALSE      NOT NULL,
     user_id        INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
 );

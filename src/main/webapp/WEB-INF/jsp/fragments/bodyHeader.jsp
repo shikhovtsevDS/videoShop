@@ -18,7 +18,7 @@
                     </li>
                     <sec:authorize access="isAuthenticated()">
                     <li class="nav-item">
-                        <a class="nav-link" href="order">Bag</a>
+                        <a class="nav-link" href="/bag">Bag</a>
                     </li>
                     <li>
                             <%--@elvariable id="userTo" type="ru.shikhovtsev.videoShop.to.UserTo"--%>
