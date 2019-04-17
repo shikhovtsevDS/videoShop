@@ -10,7 +10,7 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 @Getter
@@ -33,11 +33,11 @@ public class Order extends AbstractNamedEntity {
 
     @Column(name = "created_date", nullable = false)
     @NotNull
-    private LocalDateTime createdDate = LocalDateTime.now();
+    private LocalDate createdDate = LocalDate.now();
 
     @Column(name = "delivered_date", nullable = false)
     @NotNull
-    private LocalDateTime deliveredDate = LocalDateTime.now().plusDays(6);
+    private LocalDate deliveredDate = LocalDate.now().plusDays(6);
 
     @Enumerated
     @Column(name = "state")

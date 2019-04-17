@@ -17,6 +17,7 @@
             <table class="table table-striped display" id="datatable">
                 <thead>
                 <tr>
+                    <th>Number</th>
                     <th>Location</th>
                     <th>Created date</th>
                     <th>Delivered date</th>

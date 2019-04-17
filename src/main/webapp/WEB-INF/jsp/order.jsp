@@ -43,11 +43,14 @@
                                         <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
                                             <h6><strong>${product.cost} <span class="text-muted">x</span></strong></h6>
                                         </div>
-                                        <div class="col-2 col-sm-2 col-md-2 text-right">
-                                            <button onclick="deleteProduct(${product.id})" type="button" class="btn btn-outline-danger btn-xs">
-                                                <i class="fa fa-trash" aria-hidden="true"></i>
-                                            </button>
-                                        </div>
+                                        <c:if test="${editMode}">
+                                            <div class="col-2 col-sm-2 col-md-2 text-right">
+                                                <button onclick="deleteProduct(${product.id})" type="button"
+                                                        class="btn btn-outline-danger btn-xs">
+                                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                        </c:if>
                                     </div>
                                 </div>
                                 <hr>
@@ -55,7 +58,9 @@
                         </c:forEach>
                         <div class="card-footer">
                             <div class="pull-right" style="margin: 10px">
-                                <a onclick="makeOrder()" class="btn btn-success pull-right">Confirm</a>
+                                <c:if test="${editMode}">
+                                    <a onclick="makeOrder()" class="btn btn-success pull-right">Confirm</a>
+                                </c:if>
                                 <div class="pull-right" style="margin: 5px">
                                     Total price: <b>${totalCost}€</b>
                                 </div>

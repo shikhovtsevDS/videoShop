@@ -15,6 +15,9 @@ $(function () {
         "info": true,
         "columns": [
             {
+                "data": "name"
+            },
+            {
                 "data": "location"
             },
             {

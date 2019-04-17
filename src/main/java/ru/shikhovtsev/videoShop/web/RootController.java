@@ -45,14 +45,6 @@ public class RootController extends AbstractUserController {
         return "products";
     }
 
-    @GetMapping("/bag")
-    public String bag(ModelMap model) {
-        List<Product> bag = productService.getBag(AuthorizedUser.id());
-        model.addAttribute("products", bag);
-        model.addAttribute("totalCost", OrderUtil.totalCost(bag));
-        return "order";
-    }
-
     @GetMapping("/login")
     public String loginPage() {
         return "login";
@@ -75,7 +67,18 @@ public class RootController extends AbstractUserController {
 
     @GetMapping("/orders/{id}")
     public String order(@PathVariable("id") int id, ModelMap model) {
-        model.addAttribute("order", orderService.get(id, AuthorizedUser.id()));
+        List<Product> products = orderService.get(id, AuthorizedUser.id()).getProducts();
+        model.addAttribute("products", products);
+        model.addAttribute("totalCost", OrderUtil.totalCost(products));
+        return "order";
+    }
+
+    @GetMapping("/bag")
+    public String bag(ModelMap model) {
+        List<Product> bag = productService.getBag(AuthorizedUser.id());
+        model.addAttribute("products", bag);
+        model.addAttribute("totalCost", OrderUtil.totalCost(bag));
+        model.addAttribute("editMode", true);
         return "order";
     }
 
