@@ -22,3 +22,12 @@ function save() {
         location.reload();
     });
 }
+
+function deleteProduct(id) {
+    $.ajax({
+        url: ajaxUrl + id,
+        type: "DELETE"
+    }).done(function () {
+        location.reload();
+    });
+}

@@ -4,50 +4,54 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.shikhovtsev.videoShop.model.Category;
 import ru.shikhovtsev.videoShop.model.Product;
-import ru.shikhovtsev.videoShop.repository.ProductsRepository;
+import ru.shikhovtsev.videoShop.repository.ProductRepository;
 
 import java.util.List;
 
 @Service
 public class ProductService {
 
-    private final ProductsRepository productsRepository;
+    private final ProductRepository productRepository;
 
     @Autowired
-    public ProductService(ProductsRepository productsRepository) {
-        this.productsRepository = productsRepository;
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
     }
 
     public Product create(Product product) {
-        return productsRepository.save(product);
+        return productRepository.save(product);
     }
 
     public void delete(Integer id) {
-        productsRepository.deleteById(id);
+        productRepository.deleteById(id);
     }
 
     public List<Product> getAll() {
-        return productsRepository.findAll();
+        return productRepository.findAll();
     }
 
     public List<Product> getAllByCategories(Category category) {
-        return productsRepository.findAllByCategories(category);
+        return productRepository.findAllByCategories(category);
     }
 
     public Product get(Integer id) {
-        return productsRepository.findById(id).orElse(null);
+        return productRepository.findById(id).orElse(null);
     }
 
     public void update(Product product) {
-        productsRepository.save(product);
+        productRepository.save(product);
     }
 
 
     public List<Product> getBag(int userId) {
-        return productsRepository.getAllByUserId(userId);
+        return productRepository.getAllByUserId(userId);
     }
 
-    public void deleteFromUsersProducts(int userId, int productId) {
-        productsRepository.deleteFromUsersProducts(userId, productId);
+    public void deleteFromUsersProducts(int productId, int userId) {
+        productRepository.deleteFromUsersProducts(productId, userId);
+    }
+
+    public void addToBag(int productId, int userId) {
+        productRepository.addToBag(productId, userId);
     }
 }

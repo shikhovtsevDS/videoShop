@@ -44,7 +44,7 @@
                                             <h6><strong>${product.cost} <span class="text-muted">x</span></strong></h6>
                                         </div>
                                         <div class="col-2 col-sm-2 col-md-2 text-right">
-                                            <button type="button" class="btn btn-outline-danger btn-xs">
+                                            <button onclick="deleteProduct(${product.id})" type="button" class="btn btn-outline-danger btn-xs">
                                                 <i class="fa fa-trash" aria-hidden="true"></i>
                                             </button>
                                         </div>

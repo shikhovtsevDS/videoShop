@@ -9,7 +9,7 @@ import ru.shikhovtsev.videoShop.model.Product;
 
 import java.util.List;
 
-public interface ProductsRepository extends JpaRepository<Product, Integer> {
+public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     List<Product> findByCost(Double cost);
 
@@ -23,7 +23,13 @@ public interface ProductsRepository extends JpaRepository<Product, Integer> {
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM public.users_products WHERE user_id = ?1 and product_id = ?2",
+    @Query(value = "DELETE FROM public.users_products WHERE user_id = ?2 and product_id = ?1",
             nativeQuery = true)
-    void deleteFromUsersProducts(int userId, int productId);
+    void deleteFromUsersProducts(int productId, int userId);
+
+    @Modifying
+    @Transactional
+    @Query(value = "INSERT INTO public.users_products VALUES (?2, ?1)",
+            nativeQuery = true)
+    void addToBag(int productId, int userId);
 }

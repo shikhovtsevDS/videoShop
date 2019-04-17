@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="resources/css/header.css">
 </head>
 <body class="text-center" style="height: 100%">
+<script type="text/javascript" src="resources/js/noty.js" defer></script>
+<script type="text/javascript" src="resources/js/product.js" defer></script>
 <jsp:include page="fragments/bodyHeader.jsp"/>
 <script src="https://use.fontawesome.com/c560c025cf.js"></script>
 <div class="w-100 h-100">
@@ -46,7 +48,7 @@
                         </div>
                         <sec:authorize access="isAuthenticated()">
                             <div class="pull-right" style="margin: 10px">
-                                <a href="/" class="btn btn-success pull-right">Add to order</a>
+                                <a onclick="save(${product.id})" class="btn btn-success pull-right">Add to order</a>
                             </div>
                         </sec:authorize>
                     </div>

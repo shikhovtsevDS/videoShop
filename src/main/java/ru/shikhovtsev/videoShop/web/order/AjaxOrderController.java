@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.shikhovtsev.videoShop.AuthorizedUser;
+import ru.shikhovtsev.videoShop.model.DeliveryState;
 import ru.shikhovtsev.videoShop.model.Order;
 import ru.shikhovtsev.videoShop.model.Product;
 import ru.shikhovtsev.videoShop.service.OrderService;
@@ -39,14 +40,15 @@ public class AjaxOrderController {
 
     @PostMapping(value = "/bag")
     public void saveOrder(@Valid Order order) {
+        order.setState(DeliveryState.IN_PROCESSING);
         List<Product> bag = productService.getBag(AuthorizedUser.id());
         orderService.saveOrder(bag, order);
-        bag.forEach(p -> productService.deleteFromUsersProducts(AuthorizedUser.id(), p.getId()));
+        bag.forEach(p -> productService.deleteFromUsersProducts(p.getId(), AuthorizedUser.id()));
     }
 
     @DeleteMapping(value = "/bag/{id}")
     public void deleteFromUsersProducts(@PathVariable("id") int id) {
-        productService.deleteFromUsersProducts(AuthorizedUser.get().getUserTo().getId(), id);
+        productService.deleteFromUsersProducts(id, AuthorizedUser.id());
     }
 
     @DeleteMapping(value = "/{id}")
@@ -56,10 +58,8 @@ public class AjaxOrderController {
         orderService.delete(id, userId);
     }
 
-    @PostMapping(value = "/{id}")
-    public void updateCount(@PathVariable("id") int id, @RequestParam("productId") int productId, @RequestParam("count") int count) {
-        int userId = AuthorizedUser.id();
-        log.info("update count {} for order {}, product {}, user {}", count, id, productId, userId);
-        orderService.updateCount(id, count, userId);
+    @PostMapping("/bag/{id}")
+    public void addToBag(@PathVariable("id") int id) {
+        productService.addToBag(id, AuthorizedUser.id());
     }
 }
