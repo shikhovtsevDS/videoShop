@@ -3,10 +3,7 @@ package ru.shikhovtsev.videoShop.web;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.shikhovtsev.videoShop.AuthorizedUser;
 import ru.shikhovtsev.videoShop.model.Product;
 import ru.shikhovtsev.videoShop.service.CategoryService;
@@ -37,6 +34,14 @@ public class RootController extends AbstractUserController {
     public String index(Model model) {
         model.addAttribute("products", productService.getAll());
         model.addAttribute("categories", categoryService.getAll());
+        return "index";
+    }
+
+    @GetMapping("/category/{id}")
+    public String index(@PathVariable("id") int catId, ModelMap model) {
+        model.addAttribute("products", productService.getAllByCategories(catId));
+        model.addAttribute("categories", categoryService.getAll());
+        model.addAttribute("catId", catId);
         return "index";
     }
 

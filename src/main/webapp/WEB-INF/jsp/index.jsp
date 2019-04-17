@@ -48,10 +48,10 @@
         </div><br><br>
         <div class="container">
             <label class="sr-only">Search </label>
-            <select class="custom-select d-block w-100" required>
-                <option value="">Choose...</option>
+            <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" class="custom-select d-block w-100" required>
+                <option value="/">Choose...</option>
                 <c:forEach var="category" items="${categories}">
-                    <option value="${category.description}">${category.description}</option>
+                    <option value="/category/${category.id}" ${catId == category.id ? "selected=\"selected\"" : ""}>${category.description}</option>
                 </c:forEach>
             </select>
             <br>

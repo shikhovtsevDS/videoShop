@@ -2,8 +2,8 @@ package ru.shikhovtsev.videoShop.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.shikhovtsev.videoShop.model.Category;
 import ru.shikhovtsev.videoShop.model.Product;
+import ru.shikhovtsev.videoShop.repository.CategoryRepository;
 import ru.shikhovtsev.videoShop.repository.ProductRepository;
 
 import java.util.List;
@@ -12,10 +12,12 @@ import java.util.List;
 public class ProductService {
 
     private final ProductRepository productRepository;
+    private final CategoryRepository categoryRepository;
 
     @Autowired
-    public ProductService(ProductRepository productRepository) {
+    public ProductService(ProductRepository productRepository, CategoryRepository categoryRepository) {
         this.productRepository = productRepository;
+        this.categoryRepository = categoryRepository;
     }
 
     public Product create(Product product) {
@@ -30,8 +32,8 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public List<Product> getAllByCategories(Category category) {
-        return productRepository.findAllByCategories(category);
+    public List<Product> getAllByCategories(int catId) {
+        return productRepository.findAllByCategories(categoryRepository.findById(catId).get());
     }
 
     public Product get(Integer id) {
