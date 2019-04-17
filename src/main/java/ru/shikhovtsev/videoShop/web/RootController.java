@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.shikhovtsev.videoShop.AuthorizedUser;
-import ru.shikhovtsev.videoShop.model.Order;
 import ru.shikhovtsev.videoShop.model.Product;
 import ru.shikhovtsev.videoShop.service.CategoryService;
 import ru.shikhovtsev.videoShop.service.OrderService;
@@ -90,25 +89,16 @@ public class RootController extends AbstractUserController {
 
     @RestController
     public static class AjaxRootController extends AbstractUserController {
+
         @PostMapping("/profile")
         public void updateProfile(@Valid UserTo userTo) {
             super.update(userTo, AuthorizedUser.id());
             AuthorizedUser.get().update(userTo);
         }
-
         @PostMapping("/register")
         public String saveRegister(@Valid UserTo userTo) {
             super.create(UserUtil.createNewFromTo(userTo, "qwerty123"));
             return "redirect:login?email=" + userTo.getEmail();
         }
-    }
-
-    @PostMapping(value = "/order/{id}")
-    public void deleteFromUsersProducts(@PathVariable("id") int id) {
-        productService.deleteFromUsersProducts(AuthorizedUser.get().getUserTo().getId(), id);
-    }
-
-    public void saveOrder(@Valid Order order) {
-        orderService.saveOrder(productService.getBag(AuthorizedUser.id()), order);
     }
 }

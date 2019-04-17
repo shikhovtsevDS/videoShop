@@ -10,6 +10,8 @@
 </head>
 
 <body class="text-center" style="height: 100%">
+<script type="text/javascript" src="resources/js/noty.js" defer></script>
+<script type="text/javascript" src="resources/js/order.js" defer></script>
 <jsp:include page="fragments/bodyHeader.jsp"/>
 <script src="https://use.fontawesome.com/c560c025cf.js"></script>
 <div class="w-100 h-100">
@@ -72,11 +74,11 @@
     </section>
 </div>
 
-<div class="modal fade" id="makeOrd">
+<div class="modal fade" id="editRow">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title card-header info-color white-text text-center py-4" id="ordModalTitle"></h5>
+                <h5 class="modal-title card-header info-color white-text text-center py-4" id="modalTitle"></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
@@ -93,10 +95,10 @@
                                placeholder="Location">
                     </div>
 
-                    <div class="col-xs-9">
+                    <%--<div class="col-xs-9">
                         <input type="date" class="form-control mb-4" id="deliveredDate" name="deliveredDate"
                                placeholder="Delivered date">
-                    </div>
+                    </div>--%>
 
                     <div class="form-group">
                         <div class="col-xs-offset-3 col-xs-9">

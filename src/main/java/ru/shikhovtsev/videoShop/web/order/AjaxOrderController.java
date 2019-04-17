@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.shikhovtsev.videoShop.AuthorizedUser;
 import ru.shikhovtsev.videoShop.model.Order;
+import ru.shikhovtsev.videoShop.model.Product;
 import ru.shikhovtsev.videoShop.service.OrderService;
+import ru.shikhovtsev.videoShop.service.ProductService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -17,10 +19,12 @@ public class AjaxOrderController {
     protected final Logger log = LoggerFactory.getLogger(getClass());
 
     private final OrderService orderService;
+    private final ProductService productService;
 
     @Autowired
-    public AjaxOrderController(OrderService orderService) {
+    public AjaxOrderController(OrderService orderService, ProductService productService) {
         this.orderService = orderService;
+        this.productService = productService;
     }
 
     @GetMapping(value = "/{id}")
@@ -33,18 +37,23 @@ public class AjaxOrderController {
         return orderService.getAll(AuthorizedUser.id());
     }
 
+    @PostMapping(value = "/bag")
+    public void saveOrder(@Valid Order order) {
+        List<Product> bag = productService.getBag(AuthorizedUser.id());
+        orderService.saveOrder(bag, order);
+        bag.forEach(p -> productService.deleteFromUsersProducts(AuthorizedUser.id(), p.getId()));
+    }
+
+    @DeleteMapping(value = "/bag/{id}")
+    public void deleteFromUsersProducts(@PathVariable("id") int id) {
+        productService.deleteFromUsersProducts(AuthorizedUser.get().getUserTo().getId(), id);
+    }
+
     @DeleteMapping(value = "/{id}")
     public void delete(@PathVariable("id") int id) {
         int userId = AuthorizedUser.id();
         log.info("delete order {} for user {}", id, userId);
         orderService.delete(id, userId);
-    }
-
-    @PostMapping
-    public void update(@Valid Order order) {
-        int userId = AuthorizedUser.id();
-        log.info("update {} for user {}", order, userId);
-        orderService.update(order, userId);
     }
 
     @PostMapping(value = "/{id}")

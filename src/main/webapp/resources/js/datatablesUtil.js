@@ -13,12 +13,6 @@ function add() {
     $("#editRow").modal();
 }
 
-function makeOrder() {
-    $("#ordModalTitle").html("Make order");
-    form.find(":input").val("");
-    $("#makeOrd").modal();
-}
-
 function updateRow(id) {
     $("#modalTitle").html("Edit");
     $.get(ajaxUrl + id, function (data) {

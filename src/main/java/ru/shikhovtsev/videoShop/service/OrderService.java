@@ -75,6 +75,6 @@ public class OrderService {
 
     public void saveOrder(List<Product> products, Order order) {
         Order temp = repository.save(order, AuthorizedUser.get().getUserTo().getId());
-        products.stream().forEach(t -> repository.insertIntoOrdersProducts(temp.getId(), t.getId()));
+        products.stream().forEach(p -> repository.insertIntoOrdersProducts(temp.getId(), p.getId()));
     }
 }

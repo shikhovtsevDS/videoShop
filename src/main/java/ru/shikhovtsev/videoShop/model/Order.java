@@ -37,7 +37,7 @@ public class Order extends AbstractNamedEntity {
 
     @Column(name = "delivered_date", nullable = false)
     @NotNull
-    private LocalDateTime deliveredDate;
+    private LocalDateTime deliveredDate = LocalDateTime.now().plusDays(6);
 
     @Enumerated
     @Column(name = "state")
