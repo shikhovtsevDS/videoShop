@@ -16,18 +16,18 @@ VALUES ('userLast1',
         '$2a$10$yNYcpx8Ucc.kjimb8j6.peYgoY0mAe/0EmG.x66RYDXAE7ncEzLGu'); --123
 -- ('Last4', 'First4', 'Middle4', 'first4@mail.ru', '$2a$10$yNYcpx8Ucc.kjimb8j6.peYgoY0mAe/0EmG.x66RYDXAE7ncEzLGu'); //123
 
-INSERT INTO products (name, description, cost, image)
-VALUES ('Camera TheBEST', 'Best camera', 100, 'https://app.coverr.co/s3/mp4/Steaming-Yellowstone.mp4'),
-       ('Camera betterThenNothing', 'Removes and oh well', 20, 'https://app.coverr.co/s3/mp4/Warm-Hands.mp4'),
-       ('Camera', 'Just camera', 34, 'https://app.coverr.co/s3/mp4/Twisting-Out.mp4'),
+INSERT INTO products (name, description, cost, image, video)
+VALUES ('Camera TheBEST', 'Best camera', 100, 'https://s3.eu-north-1.amazonaws.com/elasticbeanstalk-eu-north-1-643883518405/6.jpg', 'https://app.coverr.co/s3/mp4/Steaming-Yellowstone.mp4'),
+       ('Camera betterThenNothing', 'Removes and oh well', 20, 'https://s3.eu-north-1.amazonaws.com/elasticbeanstalk-eu-north-1-643883518405/3.jpg', 'https://app.coverr.co/s3/mp4/Warm-Hands.mp4'),
+       ('Camera', 'Just camera', 34, 'https://s3.eu-north-1.amazonaws.com/elasticbeanstalk-eu-north-1-643883518405/1.jpg', 'https://app.coverr.co/s3/mp4/Twisting-Out.mp4'),
        ('Camera Professional',
         'Camera for professional photographers',
         34,
-        'https://app.coverr.co/s3/mp4/Sony-cam.mp4'),
-       ('Camera User', 'Camera for people from people', 34, 'https://app.coverr.co/s3/mp4/Profile-pic.mp4'),
-       ('TV Family', 'Big TV for many people', 70, 'https://app.coverr.co/s3/mp4/The-Surfers.mp4'),
-       ('TV Everyone', 'TV for every human in the world', 10, 'https://app.coverr.co/s3/mp4/A-Director-View.mp4'),
-       ('TV Travel Version', 'Small TV for travelers', 40, 'https://app.coverr.co/s3/mp4/Aloha-Mundo.mp4');
+        'https://s3.eu-north-1.amazonaws.com/elasticbeanstalk-eu-north-1-643883518405/2.jpg', 'https://app.coverr.co/s3/mp4/Sony-cam.mp4'),
+       ('Camera User', 'Camera for people from people', 34, 'https://s3.eu-north-1.amazonaws.com/elasticbeanstalk-eu-north-1-643883518405/5.jpg', 'https://app.coverr.co/s3/mp4/Profile-pic.mp4'),
+       ('TV Family', 'Big TV for many people', 70, 'https://s3.eu-north-1.amazonaws.com/elasticbeanstalk-eu-north-1-643883518405/7.jpg', 'https://app.coverr.co/s3/mp4/The-Surfers.mp4'),
+       ('TV Everyone', 'TV for every human in the world', 10, 'https://s3.eu-north-1.amazonaws.com/elasticbeanstalk-eu-north-1-643883518405/9.jpg', 'https://app.coverr.co/s3/mp4/A-Director-View.mp4'),
+       ('TV Travel Version', 'Small TV for travelers', 40, 'https://s3.eu-north-1.amazonaws.com/elasticbeanstalk-eu-north-1-643883518405/8.jpg', 'https://app.coverr.co/s3/mp4/Aloha-Mundo.mp4');
 
 --Потом можно удалить
 INSERT INTO orders (name, location, created_date, delivered_date, state, confirmed, user_id)

@@ -37,6 +37,9 @@ public class Product extends AbstractNamedEntity {
     @Column(name = "image")
     private String image;
 
+    @Column(name = "video")
+    private String video;
+
     @ManyToMany
     @JoinTable(name = "orders_products", schema = "public",
             joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"),

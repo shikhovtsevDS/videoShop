@@ -42,7 +42,8 @@ CREATE TABLE products
   name        VARCHAR   NOT NULL,
   cost        INTEGER   NOT NULL,
   description VARCHAR   NOT NULL,
-  image       VARCHAR
+  image       VARCHAR,
+  video       VARCHAR
 );
 
 CREATE TABLE orders_products
